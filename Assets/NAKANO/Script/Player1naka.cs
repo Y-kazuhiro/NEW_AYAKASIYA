@@ -32,61 +32,38 @@ public class Player1naka : MonoBehaviour
     GameObject Enemy1;
     Enemy1 enemy;
 
-
-
     GameObject Enemy3;
     Enemy3 enemy3;
-
-
 
     GameObject EGhost;
     EGhost enemyG;
 
-
-
     GameObject EDarkGhost;
     EDarkGhost enemyDarkG;
-
-
 
     GameObject LEnemy;
     LEnemy enemyL;
 
-
-
     GameObject EKnight;
     EKnight enemyKnight;
-
-
 
     GameObject EGoblin;
     EGoblin enemyGoblin;
 
-
-
     GameObject EGoblin1;
     EGoblin1 enemyGoblin1;
-
-
 
     GameObject ETree;
     ETree enemyTree;
     //------------------------------------------------------------
 
-
-
     Rigidbody2D rd2d;
     Animator anim;
-
-
 
     AudioSource audioSource;
     public AudioClip sound1;
     public AudioClip sound2;
     public AudioClip sound3;
-
-
-
 
     void Start()
     {
@@ -94,56 +71,35 @@ public class Player1naka : MonoBehaviour
         rd2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
-
-
         //敵の情報を取得する-------------------------------------------------
         Enemy1 = GameObject.Find("Enemy1"); //Enemy変数共有化
         enemy = Enemy1.GetComponent<Enemy1>();
 
-
-
         Enemy3 = GameObject.Find("Enemy3"); //Enemy変数共有化
         enemy3 = Enemy3.GetComponent<Enemy3>();
-
-
 
         EGhost = GameObject.Find("EGhost"); //Enemy変数共有化
         enemyG = EGhost.GetComponent<EGhost>();
 
-
-
         EDarkGhost = GameObject.Find("EDarkGhost"); //Enemy変数共有化
         enemyDarkG = EDarkGhost.GetComponent<EDarkGhost>();
-
-
 
         LEnemy = GameObject.Find("LEnemy"); //Enemy変数共有化
         enemyL = LEnemy.GetComponent<LEnemy>();
 
-
-
         EKnight = GameObject.Find("EKnight"); //Enemy変数共有化
         enemyKnight = EKnight.GetComponent<EKnight>();
-
-
 
         EGoblin = GameObject.Find("EGoblin"); //Enemy変数共有化
         enemyGoblin = EGoblin.GetComponent<EGoblin>();
 
-
-
         EGoblin1 = GameObject.Find("EGoblin1"); //Enemy変数共有化
         enemyGoblin1 = EGoblin1.GetComponent<EGoblin1>();
-
-
 
         ETree = GameObject.Find("ETree"); //Enemy変数共有化
         enemyTree = ETree.GetComponent<ETree>();
         //--------------------------------------------------------------------
     }
-
-
-
 
     void Update()
     {
@@ -161,6 +117,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("上", true);
                 P_turn--;
             }
+
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 audioSource.PlayOneShot(sound2);
@@ -171,8 +128,6 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("下", true);
                 P_turn--;
             }
-
-
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -187,6 +142,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("右", true);
                 P_turn--;
             }
+
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 audioSource.PlayOneShot(sound2);
@@ -197,10 +153,8 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("左", true);
                 P_turn--;
             }
+
             //------------------------------------------------------------------
-
-
-
 
             //------------プレイヤーの方向を変える　ターン消費なし----------------
             if (Input.GetKeyDown(KeyCode.W))//上を向く
@@ -210,6 +164,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("左", false);
                 anim.SetBool("上", true);
             }
+
             if (Input.GetKeyDown(KeyCode.S))//下を向く
             {
                 anim.SetBool("上", false);
@@ -218,8 +173,6 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("下", true);
             }
 
-
-
             if (Input.GetKeyDown(KeyCode.D))//右を向く
             {
                 anim.SetBool("上", false);
@@ -227,6 +180,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("左", false);
                 anim.SetBool("右", true);
             }
+
             if (Input.GetKeyDown(KeyCode.A))//左を向く
             {
                 anim.SetBool("上", false);
@@ -234,11 +188,8 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("右", false);
                 anim.SetBool("左", true);
             }
+
             //----------------------------------------------------------------
-
-
-
-
             //攻撃
             if (Input.GetKeyDown(KeyCode.Space))//スペースで攻撃
             {
@@ -247,8 +198,6 @@ public class Player1naka : MonoBehaviour
                 P_turn--;
             }
 
-
-
             if (Input.GetKeyDown(KeyCode.Q))//範囲必殺技
             {
                 if (Youki >= 15)
@@ -256,15 +205,11 @@ public class Player1naka : MonoBehaviour
                     PlayerSPLock = true;
                 }
 
-
-
                 if (PlayerSPLock == false)
                 {
                     Debug.Log("<color=red>解放されていない</color>");
                     Debug.Log("<color=red>解放に必要な妖気</color>" + Youki + "/15");
                 }
-
-
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
                 {
@@ -276,8 +221,6 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("<color=red>技が出せない！</color>");
             }
 
-
-
             if (Input.GetKeyDown(KeyCode.E))//横必殺技
             {
                 if (Youki >= 15)
@@ -285,15 +228,11 @@ public class Player1naka : MonoBehaviour
                     PlayerSPLock = true;
                 }
 
-
-
                 if (PlayerSPLock == false)
                 {
                     Debug.Log("<color=red>解放されていない</color>");
                     Debug.Log("<color=red>解放に必要な妖気</color>" + Youki + "/15");
                 }
-
-
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
                 {
@@ -305,8 +244,6 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("<color=red>技が出せない！</color>");
             }
         }
-
-
 
         //if(PlayerEXP>=100)//レベルアップ
         //{
@@ -321,12 +258,8 @@ public class Player1naka : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
 
-
-
         StartCoroutine("TurnReset");
     }
-
-
 
     IEnumerator TurnReset()//ターンリセットする
     {
@@ -337,9 +270,6 @@ public class Player1naka : MonoBehaviour
         }
     }
 
-
-
-
     void SPattack()
     {
         anim.SetTrigger("SPattack");
@@ -347,18 +277,12 @@ public class Player1naka : MonoBehaviour
         PlayerSPAttack--;
     }
 
-
-
     void SPSPattack()
     {
         anim.SetTrigger("2SPattack");
         audioSource.PlayOneShot(sound3);
         PlayerSPAttack--;
     }
-
-
-
-
 
     //----------------------------------------//当たり判定処理---------------------------
     void OnTriggerEnter2D(Collider2D collision)
@@ -369,15 +293,11 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=red>★</color>" + "敵HP" + enemy.EnemyHP);
         }
 
-
-
         if (collision.gameObject.tag == "Enemy3")
         {
             enemy3.EnemyHP3 -= PlayerPower;//Enemy3に攻撃
             Debug.Log("<color=red>★</color>" + "敵HP" + enemy3.EnemyHP3);
         }
-
-
 
         if (collision.gameObject.tag == "EGhost")
         {
@@ -385,15 +305,11 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyG.EnemyHPG);
         }
 
-
-
         if (collision.gameObject.tag == "LEnemy")
         {
             enemyL.EnemyHPL -= PlayerPower;//LEnemyに攻撃
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyL.EnemyHPL);
         }
-
-
 
         if (collision.gameObject.tag == "EDarkGhost")
         {
@@ -401,15 +317,11 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyDarkG.EnemyHPDG);
         }
 
-
-
         if (collision.gameObject.tag == "EKnight")
         {
             enemyKnight.EnemyHPK -= PlayerPower;
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyKnight.EnemyHPK);
         }
-
-
 
         if (collision.gameObject.tag == "EGoblin")
         {
@@ -417,23 +329,17 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyGoblin.EnemyHPGob);
         }
 
-
-
         if (collision.gameObject.tag == "EGoblin1")
         {
             enemyGoblin1.EnemyHPGob1 -= PlayerPower;
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyGoblin1.EnemyHPGob1);
         }
 
-
-
         if (collision.gameObject.tag == "ETree")
         {
             enemyTree.EnemyHPT -= PlayerPower;
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyTree.EnemyHPT);
         }
-
-
 
         if (collision.gameObject.tag == "stone")//石取得
         {
@@ -447,10 +353,6 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + "必殺技あと" + PlayerSPAttack + "回");
         }
         //---------------------------------------------------------------------------------------------
-
-
-
-
         //----------------------------------シーン切り替え----------------------------------------------
         if (collision.gameObject.tag == "Goal2")//第2ステージに進む
         {
@@ -463,8 +365,6 @@ public class Player1naka : MonoBehaviour
                 Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT1);
         }
 
-
-
         if (collision.gameObject.tag == "Goal3")//第３ステージに進む
         {
             if (NEXTPoint >= NEXTCOUNT2)
@@ -475,8 +375,6 @@ public class Player1naka : MonoBehaviour
             else
                 Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT2);
         }
-
-
 
         if (collision.gameObject.tag == "Goal")
         {
@@ -489,8 +387,6 @@ public class Player1naka : MonoBehaviour
                 Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT3);
         }
 
-
-
         if (collision.gameObject.tag == "Goal1")
         {
             if (NEXTPoint >= NEXTCOUNT4)
@@ -501,9 +397,6 @@ public class Player1naka : MonoBehaviour
             else
                 Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT4);
         }
-
-
-
         //-------------------------------------------------------------------------------------------
     }
 }
