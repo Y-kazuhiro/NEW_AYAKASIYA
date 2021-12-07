@@ -50,6 +50,7 @@ public class EGoblin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERGob;//Playerに攻撃
+            Debug.Log("<color=red>★</color>" + EnemyPOWERGob + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
         }
         //animator.SetTrigger("Death");   //倒れるアニメに移行

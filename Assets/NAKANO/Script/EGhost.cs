@@ -50,6 +50,7 @@ public class EGhost : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERG;//Playerに攻撃
+            Debug.Log("<color=red>★</color>" + EnemyPOWERG + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
         }
         //animator.SetTrigger("Death");   //倒れるアニメに移行
