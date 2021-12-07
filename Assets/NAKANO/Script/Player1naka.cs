@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement; //シーン遷移させる場合に必要
 public class Player1naka : MonoBehaviour
 {
     //プレイヤー情報
-    public static float PlayerHP = 60;//HP
+    public static float PlayerHP = 4;//HP
+    public static float PlayerHPSab = 4;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerSPAttack = 10;//必殺技使用回数
     public static bool PlayerSPLock = false;//必殺技ロック
@@ -24,7 +25,7 @@ public class Player1naka : MonoBehaviour
     public static float NEXTCOUNT2 = 10;
     public static float NEXTCOUNT3 = 15;
     public static float NEXTCOUNT4 = 20;
-    //-------------------------------------------
+    //--------------------------------------------
 
 
 
@@ -256,6 +257,7 @@ public class Player1naka : MonoBehaviour
         {
             anim.SetTrigger("Die");
             SceneManager.LoadScene("GameOver");
+            PlayerHP = PlayerHPSab;
         }
 
         StartCoroutine("TurnReset");
