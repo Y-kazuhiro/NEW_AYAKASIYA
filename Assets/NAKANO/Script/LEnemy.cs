@@ -24,6 +24,7 @@ public class LEnemy : MonoBehaviour
             Player1naka.NEXTPoint += EnemyPointL;
             Player1naka.PlayerEXP += EnemyEXPL;
             Player1naka.Youki += EnemyYouki;
+            Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPL + "ゲット");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)

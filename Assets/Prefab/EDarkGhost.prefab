@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aac3f07b30b17e4cb89798b95c83e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHPDG: 10
+  EnemyHPDG: 15
   EnemyPOWERDG: 3
   EnemyEXPDG: 20
   EnemyPointDG: 3

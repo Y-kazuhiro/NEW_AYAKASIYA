@@ -22,9 +22,9 @@ public class Player1naka : MonoBehaviour
 
     //------------ゴールに必要なポイント----------
     public static float NEXTCOUNT1 = 5;
-    public static float NEXTCOUNT2 = 10;
-    public static float NEXTCOUNT3 = 15;
-    public static float NEXTCOUNT4 = 20;
+    public static float NEXTCOUNT2 = 15;
+    public static float NEXTCOUNT3 = 25;
+    public static float NEXTCOUNT4 = 35;
     //--------------------------------------------
 
 
@@ -246,12 +246,19 @@ public class Player1naka : MonoBehaviour
             }
         }
 
-        //if(PlayerEXP>=100)//レベルアップ
-        //{
-        // PlayerHP += 5;
-        // PlayerPower += 1;
-        // PlayerSPAttack += 2;
-        //}
+        if(PlayerEXP>=100)//レベルアップ
+        {
+            PlayerHP += 5;
+         PlayerPower += 2;
+         PlayerSPAttack += 2;
+
+            Debug.Log("<color=blue>★レベルアップ！</color>");
+            Debug.Log("体力を 15 回復");
+            Debug.Log("攻撃力が 2 アップ");
+            Debug.Log("必殺技回数 + 2");
+
+            PlayerEXP = 0;
+        }
 
         if (PlayerHP <= 0)//プレーヤーの体力が０以下になるとゲームオーバー
         {

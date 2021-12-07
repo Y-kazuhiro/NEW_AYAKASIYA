@@ -179,6 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHPG: 10
   EnemyPOWERG: 2
-  EnemyEXPG: 30
-  EnemyPointG: 3
+  EnemyEXPG: 40
+  EnemyPointG: 1
   EnemyYouki: 1

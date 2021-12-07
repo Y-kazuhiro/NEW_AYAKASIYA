@@ -23,6 +23,7 @@ public class Enemy3 : MonoBehaviour
             Player1naka.PlayerEXP += EnemyEXP3;
             Player1naka.NEXTPoint += EnemyPoint3;
             Player1naka.Youki += EnemyYouki;
+            Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXP3 + "ゲット");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)

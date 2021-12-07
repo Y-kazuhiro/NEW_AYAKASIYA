@@ -23,6 +23,7 @@ public class EGoblin1 : MonoBehaviour
             Player1naka.PlayerEXP += EnemyEXPGob1;
             Player1naka.NEXTPoint += EnemyPointGob1;
             Player1naka.Youki += EnemyYouki;
+            Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPGob1 + "ゲット");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)

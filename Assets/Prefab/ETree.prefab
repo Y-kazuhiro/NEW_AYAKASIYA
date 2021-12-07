@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50052b48349741e4ba2e29ec4d3532da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHPT: 20
-  EnemyPOWERT: 5
-  EnemyEXPT: 80
-  EnemyPointT: 8
+  EnemyHPT: 25
+  EnemyPOWERT: 2
+  EnemyEXPT: 50
+  EnemyPointT: 5
   EnemyYouki: 5
