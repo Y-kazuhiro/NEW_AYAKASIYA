@@ -3296,7 +3296,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 36.5, y: 14.059624}
+  m_Offset: {x: 36.17939, y: 14.059624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3307,7 +3307,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.032856, y: 2.0807533}
+  m_Size: {x: 4.674076, y: 2.0807533}
   m_EdgeRadius: 0
 --- !u!61 &1320914060
 BoxCollider2D:
@@ -3322,7 +3322,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 38.717716, y: 13.146487}
+  m_Offset: {x: 38.980034, y: 13.146487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3333,7 +3333,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4645767, y: 3.4406605}
+  m_Size: {x: 1.9892159, y: 3.4406605}
   m_EdgeRadius: 0
 --- !u!61 &1320914061
 BoxCollider2D:
@@ -3374,7 +3374,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 33.992275, y: 12.479988}
+  m_Offset: {x: 33.992275, y: 13.490402}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3385,7 +3385,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9589615, y: 3.0012627}
+  m_Size: {x: 1.9589615, y: 5.022091}
   m_EdgeRadius: 0
 --- !u!61 &1320914063
 BoxCollider2D:
@@ -3400,7 +3400,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 33.630783, y: 17.44112}
+  m_Offset: {x: 33.630783, y: 17.450836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3411,7 +3411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7128143, y: 5.185136}
+  m_Size: {x: 1.7128143, y: 5.1657047}
   m_EdgeRadius: 0
 --- !u!61 &1320914064
 BoxCollider2D:
