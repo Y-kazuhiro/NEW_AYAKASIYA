@@ -16,9 +16,10 @@ public class Player1naka : MonoBehaviour
     public static float PlayerEXP = 0;//経験値
     public static float NEXTPoint = 0;//ゴールに必要なポイント数
     public static float GoalCount = 0;
-    public float P_turn = 2;//プレイヤーターン　　２回行動
+    public static float P_turn = 2;//プレイヤーターン　　２回行動
     public static float Youki = 0;//妖気
-
+    public static double P_turncount = 0;
+    double P = 0.5;
 
     //------------ゴールに必要なポイント----------
     public static float NEXTCOUNT1 = 5;
@@ -276,6 +277,7 @@ public class Player1naka : MonoBehaviour
         {
             yield return null;
             P_turn = 2;//ターン回復
+            P_turncount += P;
         }
     }
 

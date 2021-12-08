@@ -18,7 +18,7 @@ public class EnemyTurn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.P_turn == 0)
+        if (Player1naka.P_turn == 0)
         {
             StartCoroutine("Move");
         }           
