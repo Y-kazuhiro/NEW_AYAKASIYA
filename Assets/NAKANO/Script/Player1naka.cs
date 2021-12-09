@@ -66,6 +66,8 @@ public class Player1naka : MonoBehaviour
     public AudioClip sound1;
     public AudioClip sound2;
     public AudioClip sound3;
+    public AudioClip sound4;
+    public AudioClip sound5;
 
     void Start()
     {
@@ -196,7 +198,7 @@ public class Player1naka : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))//スペースで攻撃
             {
                 anim.SetTrigger("PlayerAttack");
-                audioSource.PlayOneShot(sound1);
+                audioSource.PlayOneShot(sound4);
                 P_turn--;
             }
 
@@ -354,6 +356,7 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "stone")//石取得
         {
+            audioSource.PlayOneShot(sound5);
             float stone = 15;
             float SPstone = 2;
             PlayerHP += stone;//10回復
