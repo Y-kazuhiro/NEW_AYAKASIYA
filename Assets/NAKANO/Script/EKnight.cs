@@ -24,6 +24,7 @@ public class EKnight : MonoBehaviour
             Player1naka.NEXTPoint += EnemyPointK;
             Player1naka.Youki += EnemyYouki;
             Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPK + "ゲット");
+            Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)

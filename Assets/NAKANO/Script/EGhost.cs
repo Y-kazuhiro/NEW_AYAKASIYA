@@ -7,7 +7,7 @@ public class EGhost : MonoBehaviour
     //敵情報
     public float EnemyHPG = 10;
     public float EnemyPOWERG = 2;
-    public float EnemyEXPG = 30;
+    public float EnemyEXPG = 50;
     public float EnemyPointG = 3;
     public float EnemyYouki = 1;
     void Start()
@@ -24,6 +24,7 @@ public class EGhost : MonoBehaviour
             Player1naka.NEXTPoint += EnemyPointG;
             Player1naka.Youki += EnemyYouki;
             Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPG + "ゲット");
+            Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)

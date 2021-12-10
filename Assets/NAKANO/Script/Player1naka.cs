@@ -68,6 +68,8 @@ public class Player1naka : MonoBehaviour
     public AudioClip sound3;
     public AudioClip sound4;
     public AudioClip sound5;
+    public AudioClip sound6;
+    public AudioClip sound7;
 
     void Start()
     {
@@ -251,9 +253,11 @@ public class Player1naka : MonoBehaviour
 
         if(PlayerEXP>=100)//レベルアップ
         {
+            audioSource.PlayOneShot(sound7);
+
             PlayerHP += 5;
-         PlayerPower += 2;
-         PlayerSPAttack += 2;
+            PlayerPower += 2;
+            PlayerSPAttack += 2;
 
             Debug.Log("<color=blue>★レベルアップ！</color>");
             Debug.Log("体力を 15 回復");
@@ -265,14 +269,22 @@ public class Player1naka : MonoBehaviour
 
         if (PlayerHP <= 0)//プレーヤーの体力が０以下になるとゲームオーバー
         {
+            audioSource.PlayOneShot(sound6);
+
             anim.SetTrigger("Die");
-            SceneManager.LoadScene("GameOver");
-            PlayerHP = PlayerHPSab;
-            P_turncount = 0;
-            P_turn = 0;
+            PlayerHP = 1;
+            Invoke("Die",2);
         }
 
         StartCoroutine("TurnReset");
+    }
+
+    void Die()
+    {
+        SceneManager.LoadScene("GameOver");
+        PlayerHP = PlayerHPSab;
+        P_turncount = 0;
+        P_turn = 0;
     }
 
     IEnumerator TurnReset()//ターンリセットする

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class Enemy1 : MonoBehaviour
 {
     //敵情報
@@ -12,17 +10,10 @@ public class Enemy1 : MonoBehaviour
     public float EnemyEXP = 10;
     public float EnemyPoint = 1;
     public float EnemyYouki = 1;
-
-
-
     void Start()
     {
 
-
-
     }
-
-
 
     void Update()
     {
@@ -33,6 +24,7 @@ public class Enemy1 : MonoBehaviour
             Player1naka.NEXTPoint += EnemyPoint;
             Player1naka.Youki += EnemyYouki;
             Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXP + "ゲット");
+            Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)
