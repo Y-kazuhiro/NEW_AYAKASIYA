@@ -268,6 +268,8 @@ public class Player1naka : MonoBehaviour
             anim.SetTrigger("Die");
             SceneManager.LoadScene("GameOver");
             PlayerHP = PlayerHPSab;
+            P_turncount = 0;
+            P_turn = 0;
         }
 
         StartCoroutine("TurnReset");
@@ -302,54 +304,63 @@ public class Player1naka : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            audioSource.PlayOneShot(sound1);
             enemy.EnemyHP -= PlayerPower;//EnemyÇ…çUåÇ
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemy.EnemyHP);
         }
 
         if (collision.gameObject.tag == "Enemy3")
         {
+            audioSource.PlayOneShot(sound1);
             enemy3.EnemyHP3 -= PlayerPower;//Enemy3Ç…çUåÇ
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemy3.EnemyHP3);
         }
 
         if (collision.gameObject.tag == "EGhost")
         {
+            audioSource.PlayOneShot(sound1);
             enemyG.EnemyHPG -= PlayerPower;//EGhostÇ…çUåÇ
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyG.EnemyHPG);
         }
 
         if (collision.gameObject.tag == "LEnemy")
         {
+            audioSource.PlayOneShot(sound1);
             enemyL.EnemyHPL -= PlayerPower;//LEnemyÇ…çUåÇ
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyL.EnemyHPL);
         }
 
         if (collision.gameObject.tag == "EDarkGhost")
         {
+            audioSource.PlayOneShot(sound1);
             enemyDarkG.EnemyHPDG -= PlayerPower;
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyDarkG.EnemyHPDG);
         }
 
         if (collision.gameObject.tag == "EKnight")
         {
+            audioSource.PlayOneShot(sound1);
             enemyKnight.EnemyHPK -= PlayerPower;
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyKnight.EnemyHPK);
         }
 
         if (collision.gameObject.tag == "EGoblin")
         {
+            audioSource.PlayOneShot(sound1);
             enemyGoblin.EnemyHPGob -= PlayerPower;
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyGoblin.EnemyHPGob);
         }
 
         if (collision.gameObject.tag == "EGoblin1")
         {
+            audioSource.PlayOneShot(sound1);
             enemyGoblin1.EnemyHPGob1 -= PlayerPower;
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyGoblin1.EnemyHPGob1);
         }
 
         if (collision.gameObject.tag == "ETree")
         {
+            audioSource.PlayOneShot(sound1);
             enemyTree.EnemyHPT -= PlayerPower;
             Debug.Log("<color=red>Åö</color>" + "ìGHP" + enemyTree.EnemyHPT);
         }
@@ -408,6 +419,8 @@ public class Player1naka : MonoBehaviour
                 SceneManager.LoadScene("Clear");//ÉSÅ[Éã
                 GoalCount++;
                 PlayerHP = PlayerHPSab;
+                P_turncount = 0;
+                P_turn = 0;
             }
             else
                 Debug.Log("<color=red>É|ÉCÉìÉgÇ™ë´ÇËÇ»Ç¢</color>" + NEXTPoint + "/" + NEXTCOUNT4);
