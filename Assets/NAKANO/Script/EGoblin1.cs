@@ -24,6 +24,7 @@ public class EGoblin1 : MonoBehaviour
             Player1naka.NEXTPoint += EnemyPointGob1;
             Player1naka.Youki += EnemyYouki;
             Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPGob1 + "ゲット");
+            Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
             if (Player1naka.GoalCount == 0)
@@ -54,7 +55,7 @@ public class EGoblin1 : MonoBehaviour
             Debug.Log("<color=red>★</color>" + EnemyPOWERGob1 + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
         }
-        //animator.SetTrigger("Death");   //倒れるアニメに移行
+
 
     }
 }
