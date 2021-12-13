@@ -59,6 +59,9 @@ public class Player1naka : MonoBehaviour
 
     GameObject ETree;
     ETree enemyTree;
+
+    GameObject Boss;
+    Boss boss;
     //------------------------------------------------------------
 
     Rigidbody2D rd2d;
@@ -106,6 +109,9 @@ public class Player1naka : MonoBehaviour
 
         ETree = GameObject.Find("ETree"); //Enemy•Ï”‹¤—L‰»
         enemyTree = ETree.GetComponent<ETree>();
+
+        Boss = GameObject.Find("Boss"); //Enemy•Ï”‹¤—L‰»
+        boss = Boss.GetComponent<Boss>();
         //--------------------------------------------------------------------
     }
 
@@ -379,6 +385,13 @@ public class Player1naka : MonoBehaviour
             audioSource.PlayOneShot(sound1);
             enemyTree.EnemyHPT -= PlayerPower;
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
+        }
+
+        if (collision.gameObject.tag == "Boss")
+        {
+            audioSource.PlayOneShot(sound1);
+            boss.BossHP -= PlayerPower;
+            Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
         }
 
         if (collision.gameObject.tag == "stone")//Îæ“¾
