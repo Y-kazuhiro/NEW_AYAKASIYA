@@ -14,6 +14,15 @@ TagManager:
   - GameManager
   - Attack
   - Necst
+  - Boss
+  - EDarkGhost
+  - EGhost
+  - EGoblin
+  - EGoblin1
+  - EKnight
+  - Enemy3
+  - ETree
+  - LEnemy
   layers:
   - Default
   - TransparentFX
