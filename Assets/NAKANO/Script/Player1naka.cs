@@ -139,9 +139,6 @@ public class Player1naka : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 audioSource.PlayOneShot(sound2);
-
-
-
                 anim.SetBool("上", false);
                 anim.SetBool("下", false);
                 anim.SetBool("左", false);
@@ -160,7 +157,6 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("左", true);
                 P_turn--;
             }
-
             //------------------------------------------------------------------
 
             //------------プレイヤーの方向を変える　ターン消費なし----------------
