@@ -11,7 +11,9 @@ public class Player1naka : MonoBehaviour
     public static float PlayerHP = 50;//HP
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
+    public static float PlayerPowerSub = 2;//攻撃力保管用
     public static float PlayerSPAttack = 10;//必殺技使用回数
+    public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
     public static float PlayerEXP = 0;//経験値
     public static float NEXTPoint = 0;//ゴールに必要なポイント数
@@ -109,7 +111,6 @@ public class Player1naka : MonoBehaviour
 
     void Update()
     {
-
         if (P_turn != 0)//プライヤーのターンが残っていたら行動できる
         {
             //-----------プレイヤーが移動する　ターン消費あり--------------------
@@ -279,12 +280,19 @@ public class Player1naka : MonoBehaviour
         StartCoroutine("TurnReset");
     }
 
+    //シーン移行と同時にステータスを初期化
     void Die()
     {
-        SceneManager.LoadScene("GameOver");
         PlayerHP = PlayerHPSab;
+        PlayerPower = PlayerPowerSub;
+        PlayerSPAttack = PlayerSPAttackSub;
+        PlayerSPLock = false;
+        PlayerEXP = 0;
+        NEXTPoint = 0;
+        Youki = 0;
         P_turncount = 0;
         P_turn = 0;
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator TurnReset()//ターンリセットする
@@ -431,6 +439,12 @@ public class Player1naka : MonoBehaviour
                 SceneManager.LoadScene("Clear");//ゴール
                 GoalCount++;
                 PlayerHP = PlayerHPSab;
+                PlayerPower = PlayerPowerSub;
+                PlayerSPAttack = PlayerSPAttackSub;
+                PlayerSPLock = false;
+                PlayerEXP = 0;
+                NEXTPoint = 0;
+                Youki = 0;
                 P_turncount = 0;
                 P_turn = 0;
             }
