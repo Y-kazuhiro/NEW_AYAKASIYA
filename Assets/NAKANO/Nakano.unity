@@ -29128,6 +29128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
+      propertyPath: EnemyHPL
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936171, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: m_Name
       value: LEnemy
@@ -32118,7 +32122,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!1 &7615097353788344245
