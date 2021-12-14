@@ -10,16 +10,26 @@ public class ETree : MonoBehaviour
     public float EnemyEXPT = 80;
     public float EnemyPointT = 8;
     public float EnemyYouki = 1;
+
+    Animator anim;
+
+    AudioSource audioSource;
+    public AudioClip sound1;
+
     void Start()
     {
-
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (EnemyHPT <= 0)//プレーヤーの体力が０以下になると消える
         {
-            Destroy(this.gameObject);//１秒後に消える
+            audioSource.PlayOneShot(sound1);
+
+            anim.SetTrigger("Die");
+            EnemyHPT = 1;
             Player1naka.PlayerEXP += EnemyEXPT;
             Player1naka.NEXTPoint += EnemyPointT;
             Player1naka.Youki += EnemyYouki;
@@ -30,21 +40,21 @@ public class ETree : MonoBehaviour
             if (Player1naka.GoalCount == 0)
                 Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT1);
 
-
-
             if (Player1naka.GoalCount == 1)
                 Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT2);
-
-
 
             if (Player1naka.GoalCount == 2)
                 Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT3);
 
-
-
             if (Player1naka.GoalCount == 3)
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
+            Invoke("Die", 1);
         }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);//１秒後に消える
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

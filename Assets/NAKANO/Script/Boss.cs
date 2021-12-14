@@ -14,14 +14,15 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (BossHP <= 0)//プレーヤーの体力が０以下になると消える
-        {
-            Destroy(this.gameObject);//１秒後に消える
+        {           
+            anim.SetTrigger("Die");
+            BossHP = 1;
             Player1naka.PlayerEXP += BossEXP;
             Player1naka.NEXTPoint += BossPoint;
             Debug.Log("<color=blue>★</color>" + "経験値" + BossEXP + "ゲット");
@@ -37,14 +38,13 @@ public class Boss : MonoBehaviour
 
             if (Player1naka.GoalCount == 3)
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
-        }
-
-        if (BossHP <= 0)//プレーヤーの体力が０以下になるとゲームオーバー
-        {
-            anim.SetTrigger("Die");
-            BossHP = 1;
+            Invoke("Die", 1);
         }
     }
+        void Die()
+        {            
+            Destroy(this.gameObject);//１秒後に消える
+        }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

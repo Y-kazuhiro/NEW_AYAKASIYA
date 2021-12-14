@@ -9,6 +9,7 @@ public class Player1naka : MonoBehaviour
 {
     //ƒvƒŒƒCƒ„[î•ñ
     public static float PlayerHP = 50;//HP
+    public static float PlayerHPMAX = 50;//HPãŒÀ
     public static float PlayerHPSab = 50;//HP•ÛŠÇ—p
     public static float PlayerPower = 2;//UŒ‚—Í
     public static float PlayerPowerSub = 2;//UŒ‚—Í•ÛŠÇ—p
@@ -258,13 +259,13 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound7);
 
-            PlayerHP += 5;
+            PlayerHPMAX += 10;
             PlayerPower += 2;
             PlayerSPAttack += 2;
 
             Debug.Log("<color=blue>šƒŒƒxƒ‹ƒAƒbƒvI</color>");
-            Debug.Log("‘Ì—Í‚ğ 15 ‰ñ•œ");
-            Debug.Log("UŒ‚—Í‚ª 2 ƒAƒbƒv");
+            Debug.Log("‘Ì—ÍÅ‘å’l + 10");
+            Debug.Log("UŒ‚—Í‚ª + 2");
             Debug.Log("•KE‹Z‰ñ” + 2");
 
             PlayerEXP = 0;
@@ -286,6 +287,7 @@ public class Player1naka : MonoBehaviour
     void Die()
     {
         PlayerHP = PlayerHPSab;
+        PlayerHPMAX = PlayerHPSab;
         PlayerPower = PlayerPowerSub;
         PlayerSPAttack = PlayerSPAttackSub;
         PlayerSPLock = false;
@@ -397,14 +399,28 @@ public class Player1naka : MonoBehaviour
         if (collision.gameObject.tag == "stone")//Îæ“¾
         {
             audioSource.PlayOneShot(sound5);
-            float stone = 15;
+            float stone = 10;
             float SPstone = 2;
-            PlayerHP += stone;//10‰ñ•œ
-            Debug.Log("<color=blue>š</color>" + "HP+" + stone);
-            Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
-            PlayerSPAttack += SPstone;
-            Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
-            Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
+
+            if (PlayerHP + stone >= PlayerHPMAX)
+            {
+                PlayerHP += PlayerHPMAX - PlayerHP;
+                Debug.Log("<color=blue>š</color>" + "HP+" + stone);
+                Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                PlayerSPAttack += SPstone;
+                Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
+                Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
+            }
+            else
+            {
+                PlayerHP += stone;//10‰ñ•œ
+                Debug.Log("<color=blue>š</color>" + "HP+" + stone);
+                Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                PlayerSPAttack += SPstone;
+                Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
+                Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
+            }
+
         }
         //---------------------------------------------------------------------------------------------
         //----------------------------------ƒV[ƒ“Ø‚è‘Ö‚¦----------------------------------------------
