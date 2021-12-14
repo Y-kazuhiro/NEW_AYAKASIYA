@@ -19,6 +19,6 @@ public class TrunText : MonoBehaviour
     void Update()
     {
         Text Trun_text = Trun_object.GetComponent<Text>();
-        Trun_text.text = Player1naka.P_turncount + "ターン目　残りターン" + Player1naka.P_turn;
+        Trun_text.text = "HP " + Player1naka.PlayerHP + "/" + Player1naka.PlayerHPMAX;
     }
 }

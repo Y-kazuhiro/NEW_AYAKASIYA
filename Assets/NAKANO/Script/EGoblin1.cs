@@ -10,16 +10,26 @@ public class EGoblin1 : MonoBehaviour
     public float EnemyEXPGob1 = 10;
     public float EnemyPointGob1 = 1;
     public float EnemyYouki = 1;
+
+    Animator anim;
+
+    AudioSource audioSource;
+    public AudioClip sound1;
+
     void Start()
     {
-
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if (EnemyHPGob1 <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
         {
-            Destroy(this.gameObject);//‚P•bŒã‚ÉÁ‚¦‚é
+            audioSource.PlayOneShot(sound1);
+
+            anim.SetTrigger("Die");
+            EnemyHPGob1 = 1;
             Player1naka.PlayerEXP += EnemyEXPGob1;
             Player1naka.NEXTPoint += EnemyPointGob1;
             Player1naka.Youki += EnemyYouki;
@@ -35,16 +45,18 @@ public class EGoblin1 : MonoBehaviour
             if (Player1naka.GoalCount == 1)
                 Debug.Log("ŽŸ‚ÌƒXƒe[ƒW‚Ü‚Å" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT2);
 
-
-
             if (Player1naka.GoalCount == 2)
                 Debug.Log("ŽŸ‚ÌƒXƒe[ƒW‚Ü‚Å" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT3);
 
-
-
             if (Player1naka.GoalCount == 3)
                 Debug.Log("ƒS[ƒ‹‚Ü‚Å" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
+            Invoke("Die", 1);
         }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);//‚P•bŒã‚ÉÁ‚¦‚é
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
