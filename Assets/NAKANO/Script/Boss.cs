@@ -10,7 +10,8 @@ public class Boss : MonoBehaviour
     public float BossEXP = 500;
     public float BossPoint = 100;
     public static bool active = false;//行動開始
-    public static bool attack = false;//行動開始
+    public static bool attack = false;
+    public static bool Voice = false;
 
     Rigidbody2D rd2d;
     Animator anim;
@@ -33,10 +34,7 @@ public class Boss : MonoBehaviour
 
          if (EGhostObjects.Length == 0 && active == false)//EGhostが消えると動き出す
          {
-            Debug.Log("再生");
             active = true;
-            Invoke("BGM", 1);
-            
         }
 
 
@@ -50,8 +48,14 @@ public class Boss : MonoBehaviour
         }
 
         if (BossHP <= 0)//Bossの体力が０以下になると消える
-        {           
+        {
+            //DeleteTargetObj という名前のオブジェクトを取得
+            GameObject obj = GameObject.Find("BGM");
+            // 指定したオブジェクトを削除
+            Destroy(obj);
+
             anim.SetTrigger("Die");
+            Voice = true;
             BossHP = 1;
             Player1naka.PlayerEXP += BossEXP;
             Player1naka.NEXTPoint += BossPoint;
@@ -70,11 +74,6 @@ public class Boss : MonoBehaviour
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
             Invoke("Die", 1);
         }
-    }
-
-    void BGM()
-    {
-        audioSource.PlayOneShot(sound1);
     }
 
     void Spell()
