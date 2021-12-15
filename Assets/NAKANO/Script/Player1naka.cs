@@ -24,6 +24,8 @@ public class Player1naka : MonoBehaviour
     public static double P_turncount = 0;
     double P = 0.5;
 
+    public static double Spell = 4;
+
     //------------ゴールに必要なポイント----------
     public static float NEXTCOUNT1 = 5;
     public static float NEXTCOUNT2 = 15;
@@ -130,6 +132,7 @@ public class Player1naka : MonoBehaviour
                 this.transform.Translate(0, 1, 0);//上に1マス移動
                 anim.SetBool("上", true);
                 P_turn--;
+                Spell--;
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -141,6 +144,7 @@ public class Player1naka : MonoBehaviour
                 this.transform.Translate(0, -1, 0);//下に1マス移動
                 anim.SetBool("下", true);
                 P_turn--;
+                Spell--;
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -152,6 +156,7 @@ public class Player1naka : MonoBehaviour
                 this.transform.Translate(1, 0, 0);//右に1マス移動
                 anim.SetBool("右", true);
                 P_turn--;
+                Spell--;
             }
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -163,6 +168,7 @@ public class Player1naka : MonoBehaviour
                 this.transform.Translate(-1, 0, 0);//左に1マス移動
                 anim.SetBool("左", true);
                 P_turn--;
+                Spell--;
             }
             //------------------------------------------------------------------
 
@@ -206,6 +212,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetTrigger("PlayerAttack");
                 audioSource.PlayOneShot(sound4);
                 P_turn--;
+                Spell--;
             }
 
             if (Input.GetKeyDown(KeyCode.Q))//範囲必殺技
@@ -225,6 +232,7 @@ public class Player1naka : MonoBehaviour
                 {
                     SPattack();
                     P_turn--;
+                    Spell--;
                     Debug.Log("必殺技あと" + PlayerSPAttack + "回");
                 }
                 else if (PlayerSPAttack <= 0)
@@ -248,6 +256,7 @@ public class Player1naka : MonoBehaviour
                 {
                     SPSPattack();
                     P_turn--;
+                    Spell--;
                     Debug.Log("必殺技あと" + PlayerSPAttack + "回"); ;
                 }
                 else if (PlayerSPAttack <= 0)
@@ -306,6 +315,12 @@ public class Player1naka : MonoBehaviour
             yield return null;
             P_turn = 2;//ターン回復
             P_turncount += P;
+        }
+
+        if (Spell == 0)
+        {
+            yield return null;
+            Spell = 4;
         }
     }
 
