@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/NAKANO/Nakano1.unity
     guid: 8efbdeae2a34ad14dabf1ce927e82a95
   - enabled: 1
+    path: Assets/NAKANO/Last.unity
+    guid: 75f5e467070347d499fc97d30885e731
+  - enabled: 1
     path: Assets/Clear/Clear.unity
     guid: 1f78b153b0eea354c8db87a0e1830e00
   - enabled: 1
