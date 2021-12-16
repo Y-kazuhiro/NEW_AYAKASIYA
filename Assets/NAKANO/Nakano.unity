@@ -1575,11 +1575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8a0ebcd5f98bb4fb9cce5eb5bc23c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxLogCount: 7
+  m_MaxLogCount: 11
   m_Area:
     serializedVersion: 2
     x: 10
-    y: 600
+    y: 500
     width: 400
     height: 400
 --- !u!114 &1287935138

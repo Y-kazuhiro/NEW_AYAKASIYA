@@ -507,17 +507,17 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "Goal4")
         {
-                SceneManager.LoadScene("Clear");//クリア
-                GoalCount++;
-                PlayerHP = PlayerHPSab;
-                PlayerPower = PlayerPowerSub;
-                PlayerSPAttack = PlayerSPAttackSub;
-                PlayerSPLock = false;
-                PlayerEXP = 0;
-                NEXTPoint = 0;
-                Youki = 0;
-                P_turncount = 0;
-                P_turn = 0;
+            PlayerHP = PlayerHPSab;
+            PlayerHPMAX = PlayerHPSab;
+            PlayerPower = PlayerPowerSub;
+            PlayerSPAttack = PlayerSPAttackSub;
+            PlayerSPLock = false;
+            PlayerEXP = 0;
+            NEXTPoint = 0;
+            Youki = 0;
+            P_turncount = 0;
+            P_turn = 0;
+            SceneManager.LoadScene("Clear");//クリア
         }
     }
 }
