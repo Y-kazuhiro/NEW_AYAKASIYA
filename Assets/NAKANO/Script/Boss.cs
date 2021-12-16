@@ -37,19 +37,13 @@ public class Boss : MonoBehaviour
             active = true;
         }
 
-
-        if (active == true)
-        {
-        if (Player1naka.Spell == 0)
-            {
-                anim.SetTrigger("Spell");
-                Invoke("Spell", 1);
-            }
-        }
-
         if (BossHP <= 0)//Bossの体力が０以下になると消える
         {
-            //DeleteTargetObj という名前のオブジェクトを取得
+            Player1naka.Spell += 1;
+
+            BossSpell.active = true;
+
+            //オブジェクトを取得
             GameObject obj = GameObject.Find("BGM");
             // 指定したオブジェクトを削除
             Destroy(obj);
@@ -74,6 +68,15 @@ public class Boss : MonoBehaviour
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
             Invoke("Die", 1);
         }
+
+        if (active == true && BossSpell.active == false)
+        {
+            if (Player1naka.Spell == 0)
+            {
+                anim.SetTrigger("Spell");
+                Invoke("Spell", 1);
+            }
+        }
     }
 
     void Spell()
@@ -88,7 +91,7 @@ public class Boss : MonoBehaviour
     }
 
     void Die()
-    {            
+    {
         Destroy(this.gameObject);
     }
 

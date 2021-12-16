@@ -9,6 +9,8 @@ public class Spell : MonoBehaviour
     public GameObject spell2;
     public static float Order = 0;
 
+    private GameObject[] BossObjects;  //GameObject‚ÉPlayerObjects‚ðŠi”[‚µ‚Ü‚·
+
     void Start()
     {
         spell.SetActive(false);
@@ -59,7 +61,10 @@ public class Spell : MonoBehaviour
             }
         }
 
-
+        if(BossSpell.active == true)
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 
