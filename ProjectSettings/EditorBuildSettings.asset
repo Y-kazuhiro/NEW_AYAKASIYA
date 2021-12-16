@@ -32,7 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameOver/Gameover.unity
     guid: 894ccecd6e78d6949bfafbb317dc8c5d
-  - enabled: 1
-    path: Assets/Smith/Smith.unity
-    guid: de618f650c3fff547b4dfd37b94209be
   m_configObjects: {}
