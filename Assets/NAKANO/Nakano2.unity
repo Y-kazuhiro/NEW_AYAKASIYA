@@ -42053,7 +42053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4950408838563576111, guid: 89a2a75bb6f03a0459876918c7770a21, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4950408838563576111, guid: 89a2a75bb6f03a0459876918c7770a21, type: 3}
       propertyPath: m_Materials.Array.data[0]
