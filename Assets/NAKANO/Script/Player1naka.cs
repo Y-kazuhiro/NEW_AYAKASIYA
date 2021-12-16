@@ -24,6 +24,8 @@ public class Player1naka : MonoBehaviour
     public static double P_turncount = 0;
     double P = 0.5;
 
+    public static float PlayerMUKI = 0;//プレイヤーの向き
+
     public static double Spell = 4;
 
     //------------ゴールに必要なポイント----------
@@ -133,6 +135,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("上", true);
                 P_turn--;
                 Spell--;
+                PlayerMUKI = 1;
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -145,6 +148,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("下", true);
                 P_turn--;
                 Spell--;
+                PlayerMUKI = 2;
             }
 
             if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -157,6 +161,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("右", true);
                 P_turn--;
                 Spell--;
+                PlayerMUKI = 3;
             }
 
             if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -169,6 +174,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("左", true);
                 P_turn--;
                 Spell--;
+                PlayerMUKI = 4;
             }
             //------------------------------------------------------------------
 
@@ -179,6 +185,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("右", false);
                 anim.SetBool("左", false);
                 anim.SetBool("上", true);
+                PlayerMUKI = 1;
             }
 
             if (Input.GetKeyDown(KeyCode.S))//下を向く
@@ -187,6 +194,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("右", false);
                 anim.SetBool("左", false);
                 anim.SetBool("下", true);
+                PlayerMUKI = 2;
             }
 
             if (Input.GetKeyDown(KeyCode.D))//右を向く
@@ -195,6 +203,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("下", false);
                 anim.SetBool("左", false);
                 anim.SetBool("右", true);
+                PlayerMUKI = 3;
             }
 
             if (Input.GetKeyDown(KeyCode.A))//左を向く
@@ -203,6 +212,7 @@ public class Player1naka : MonoBehaviour
                 anim.SetBool("下", false);
                 anim.SetBool("右", false);
                 anim.SetBool("左", true);
+                PlayerMUKI = 4;
             }
 
             //----------------------------------------------------------------
@@ -269,6 +279,7 @@ public class Player1naka : MonoBehaviour
             audioSource.PlayOneShot(sound7);
 
             PlayerHPMAX += 10;
+            PlayerHP = PlayerHPMAX;
             PlayerPower += 2;
             PlayerSPAttack += 2;
 
@@ -476,7 +487,27 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT4)
             {
-                SceneManager.LoadScene("Clear");//ゴール
+                SceneManager.LoadScene("Last");//ラスステ
+                GoalCount++;
+                //PlayerHP = PlayerHPSab;
+                //PlayerPower = PlayerPowerSub;
+                //PlayerSPAttack = PlayerSPAttackSub;
+                //PlayerSPLock = false;
+                //PlayerEXP = 0;
+                //NEXTPoint = 0;
+                //Youki = 0;
+                //P_turncount = 0;
+                //P_turn = 0;
+            }
+            else
+            {
+                Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT4);
+            }
+        }
+
+        if (collision.gameObject.tag == "Goal4")
+        {
+                SceneManager.LoadScene("Clear");//クリア
                 GoalCount++;
                 PlayerHP = PlayerHPSab;
                 PlayerPower = PlayerPowerSub;
@@ -487,10 +518,6 @@ public class Player1naka : MonoBehaviour
                 Youki = 0;
                 P_turncount = 0;
                 P_turn = 0;
-            }
-            else
-                Debug.Log("<color=red>ポイントが足りない</color>" + NEXTPoint + "/" + NEXTCOUNT4);
         }
-        //-------------------------------------------------------------------------------------------
     }
 }

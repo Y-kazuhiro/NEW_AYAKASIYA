@@ -23,6 +23,10 @@ TagManager:
   - Enemy3
   - ETree
   - LEnemy
+  - Goal1
+  - Goal2
+  - Goal3
+  - Goal4
   layers:
   - Default
   - TransparentFX

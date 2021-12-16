@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossSpell : MonoBehaviour
 {
     public float POWERG = 6;
+    public static bool active = false;
 
     //AudioSource audioSource;
     //public AudioClip sound1;
@@ -12,6 +13,14 @@ public class BossSpell : MonoBehaviour
     void Start()
     {
         //audioSource = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if(active == true)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
