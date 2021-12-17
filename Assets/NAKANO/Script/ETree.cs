@@ -37,8 +37,20 @@ public class ETree : MonoBehaviour
             Player1naka.Youki += EnemyYouki;
             Debug.Log("<color=blue>★</color>" + "経験値" + EnemyEXPT + "ゲット");
             Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
+
+
+            if(Player1naka.Youki < 15)
+            {
             Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
             Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
+            }
+            if (Player1naka.Youki >= 15)
+            {
+                Debug.Log("<color=blue>★</color>" + "妖気を" + EnemyYouki + "個取得");
+                Debug.Log("<color=blue>★</color>" + "現在の妖気数は" + Player1naka.Youki + "個");
+                Debug.Log("<color=blue>★</color>" + "必殺技が使えるようになった");
+            }
+
             if (Player1naka.GoalCount == 0)
                 Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT1);
 
