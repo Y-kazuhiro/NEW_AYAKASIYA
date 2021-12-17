@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement; //シーン遷移させる場合に必要
 public class Player1naka : MonoBehaviour
 {
     //プレイヤー情報
-    public static float PlayerHP = 50;//HP
-    public static float PlayerHPMAX = 50;//HP上限
+    public static float PlayerHP = 120;//HP
+    public static float PlayerHPMAX = 120;//HP上限
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerPowerSub = 2;//攻撃力保管用
@@ -141,7 +141,7 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 1);
+                    Invoke("Walk", 0.5f);
                 }
             }
 
@@ -159,7 +159,7 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 1);
+                    Invoke("Walk", 0.5f);
                 }
             }
 
@@ -177,7 +177,7 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 1);
+                    Invoke("Walk", 0.5f);
                 }
             }
 
@@ -195,7 +195,7 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 1);
+                    Invoke("Walk", 0.5f);
                 }
             }
             //------------------------------------------------------------------
