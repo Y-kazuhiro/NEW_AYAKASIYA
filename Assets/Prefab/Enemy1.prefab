@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHP: 10
   EnemyPOWER: 2
-  EnemyEXP: 10
+  EnemyEXP: 5
   EnemyPoint: 1
   EnemyYouki: 1
   sound1: {fileID: 8300000, guid: 78286412f5c496048850e9028cd0752a, type: 3}

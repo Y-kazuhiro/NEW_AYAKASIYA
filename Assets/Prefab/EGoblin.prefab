@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHPGob: 6
-  EnemyPOWERGob: 2
+  EnemyPOWERGob: 4
   EnemyEXPGob: 10
   EnemyPointGob: 1
   EnemyYouki: 1

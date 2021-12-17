@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7ec064d6f2777419e2fcf75bc5bc5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHPL: 25
-  EnemyPOWERL: 6
-  EnemyEXPL: 100
+  EnemyHPL: 30
+  EnemyPOWERL: 10
+  EnemyEXPL: 50
   EnemyPointL: 10
   EnemyYouki: 10
   sound1: {fileID: 8300000, guid: 78286412f5c496048850e9028cd0752a, type: 3}

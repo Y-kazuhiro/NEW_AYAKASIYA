@@ -43,6 +43,8 @@ public class Boss : MonoBehaviour
 
             BossSpell.active = true;
 
+            GetComponent<BoxCollider2D>().enabled = false;
+
             //オブジェクトを取得
             GameObject obj = GameObject.Find("BGM");
             // 指定したオブジェクトを削除
@@ -51,21 +53,8 @@ public class Boss : MonoBehaviour
             anim.SetTrigger("Die");
             Voice = true;
             BossHP = 1;
-            Player1naka.PlayerEXP += BossEXP;
-            Player1naka.NEXTPoint += BossPoint;
-            Debug.Log("<color=blue>★</color>" + "経験値" + BossEXP + "ゲット");
-            Debug.Log("<color=blue>★</color>" + "レベルアップまで" + Player1naka.PlayerEXP + "/ 100");
-            if (Player1naka.GoalCount == 0)
-                Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT1);
-
-            if (Player1naka.GoalCount == 1)
-                Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT2);
-
-            if (Player1naka.GoalCount == 2)
-                Debug.Log("次のステージまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT3);
-
-            if (Player1naka.GoalCount == 3)
-                Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
+            Debug.Log("討伐完了");
+            Debug.Log("-----------------------------------------------------");
             Invoke("Die", 1);
         }
 
@@ -102,6 +91,7 @@ public class Boss : MonoBehaviour
             Player1naka.PlayerHP -= BossPOWER;//Playerに攻撃
             Debug.Log("<color=red>★</color>" + BossPOWER + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
+            Debug.Log("-----------------------------------------------------");
         }
 
     }

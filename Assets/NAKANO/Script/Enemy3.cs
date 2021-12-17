@@ -28,6 +28,8 @@ public class Enemy3 : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
 
+            GetComponent<BoxCollider2D>().enabled = false;
+
             anim.SetTrigger("Die");
             EnemyHP3 = 1;
             Player1naka.PlayerEXP += EnemyEXP3;
@@ -48,6 +50,7 @@ public class Enemy3 : MonoBehaviour
 
             if (Player1naka.GoalCount == 3)
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
+            Debug.Log("-----------------------------------------------------");
             Invoke("Die", 1);
         }
     }
@@ -66,6 +69,7 @@ public class Enemy3 : MonoBehaviour
             Player1naka.PlayerHP -= EnemyPOWER3;//Playerに攻撃
             Debug.Log("<color=red>★</color>" + EnemyPOWER3 + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
+            Debug.Log("-----------------------------------------------------");
         }
         //animator.SetTrigger("Death");   //倒れるアニメに移行
 

@@ -28,6 +28,8 @@ public class EKnight : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
 
+            GetComponent<BoxCollider2D>().enabled = false;
+
             anim.SetTrigger("Die");
             EnemyHPK = 1;
             Player1naka.PlayerEXP += EnemyEXPK;
@@ -48,6 +50,7 @@ public class EKnight : MonoBehaviour
 
             if (Player1naka.GoalCount == 3)
                 Debug.Log("ゴールまで" + Player1naka.NEXTPoint + "/" + Player1naka.NEXTCOUNT4);
+            Debug.Log("-----------------------------------------------------");
             Invoke("Die", 1);
         }
     }
@@ -64,6 +67,7 @@ public class EKnight : MonoBehaviour
             Player1naka.PlayerHP -= EnemyPOWERK;//Playerに攻撃
             Debug.Log("<color=red>★</color>" + EnemyPOWERK + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
+            Debug.Log("-----------------------------------------------------");
         }
         //animator.SetTrigger("Death");   //倒れるアニメに移行
 

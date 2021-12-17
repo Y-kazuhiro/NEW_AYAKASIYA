@@ -854,7 +854,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 100
+  m_PointLightOuterRadius: 200
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -913,11 +913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8a0ebcd5f98bb4fb9cce5eb5bc23c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxLogCount: 11
+  m_MaxLogCount: 14
   m_Area:
     serializedVersion: 2
     x: 10
-    y: 500
+    y: 510
     width: 400
     height: 400
 --- !u!114 &540541118
@@ -4110,8 +4110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -547.9917, y: -252.1512}
-  m_SizeDelta: {x: 479.2646, y: 224.3788}
+  m_AnchoredPosition: {x: -598.4283, y: -252.1512}
+  m_SizeDelta: {x: 378.3914, y: 224.3788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750847160
 MonoBehaviour:
@@ -59432,11 +59432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -484.948
+      value: -493
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.0666
+      value: -110.97
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59468,7 +59468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211917571304264048, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -74.2
+      value: -65
       objectReference: {fileID: 0}
     - target: {fileID: 9211917571304264048, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.y

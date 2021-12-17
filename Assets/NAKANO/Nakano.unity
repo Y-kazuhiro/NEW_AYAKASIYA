@@ -719,11 +719,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -484.948
+      value: -493
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113.0666
+      value: -110.97
       objectReference: {fileID: 0}
     - target: {fileID: 8407790722285836258, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211917571304264048, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -74.2
+      value: -65
       objectReference: {fileID: 0}
     - target: {fileID: 9211917571304264048, guid: 606c118ed6da99b4589621b376559335, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 100
+  m_PointLightOuterRadius: 200
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 13
@@ -1575,11 +1575,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a8a0ebcd5f98bb4fb9cce5eb5bc23c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxLogCount: 11
+  m_MaxLogCount: 14
   m_Area:
     serializedVersion: 2
     x: 10
-    y: 500
+    y: 510
     width: 400
     height: 400
 --- !u!114 &1287935138
@@ -1698,8 +1698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -547.9917, y: -252.1512}
-  m_SizeDelta: {x: 479.2646, y: 224.3788}
+  m_AnchoredPosition: {x: -598.4283, y: -252.1512}
+  m_SizeDelta: {x: 378.3914, y: 224.3788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384103379
 MonoBehaviour:
@@ -2904,6 +2904,10 @@ PrefabInstance:
     - target: {fileID: 1440693704265655984, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
       propertyPath: m_Offset.y
       value: -0.03961236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440693704265655986, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
+      propertyPath: EnemyHPK
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1440693704265656009, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
       propertyPath: m_Name
@@ -29264,6 +29268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2608112749386874817, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
+      propertyPath: EnemyEXP3
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2608112749386874821, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
       propertyPath: m_Name
       value: Enemy3
@@ -29454,6 +29462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
+      propertyPath: EnemyPOWERGob
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7765583273080590140, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -29523,6 +29535,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 4010742814430260733, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
+      propertyPath: EnemyEXP
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4010742814430260734, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
       propertyPath: m_Size.x
       value: 0.28470886
