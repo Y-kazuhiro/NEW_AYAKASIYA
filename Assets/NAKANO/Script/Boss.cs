@@ -38,7 +38,10 @@ public class Boss : MonoBehaviour
         }
 
         if (BossHP <= 0)//Boss‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
-        {
+        { 
+            Debug.Log("“¢”°Š®—¹");
+            Debug.Log("-----------------------------------------------------");
+            Invoke("Die", 1);
             Player1naka.Spell += 1;
 
             BossSpell.active = true;
@@ -53,9 +56,7 @@ public class Boss : MonoBehaviour
             anim.SetTrigger("Die");
             Voice = true;
             BossHP = 1;
-            Debug.Log("“¢”°Š®—¹");
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Die", 1);
+
         }
 
         if (active == true && BossSpell.active == false)

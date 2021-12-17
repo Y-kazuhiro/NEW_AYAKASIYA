@@ -350,12 +350,6 @@ public class Player1naka : MonoBehaviour
         StartCoroutine("TurnReset");
     }
 
-    void Get()
-    {
-        get = false;
-    }
-
-
     void Walk()
     {
         walk = false;
@@ -507,22 +501,22 @@ public class Player1naka : MonoBehaviour
             float stone = 10;
             float SPstone = 1;
 
-            get = true;
             if (PlayerHP + stone >= PlayerHPMAX)
             {
+                get = true;
                 PlayerHP += PlayerHPMAX - PlayerHP;
                 Debug.Log("<color=blue>š</color>" + "HP+" + stone);
                 Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
-                Debug.Log("¸”s");
                 Debug.Log("-----------------------------------------------------");
 
-                Invoke("get", 1);
+                Invoke("Get", 1);
             }
             else
             {
+                get = true;
                 PlayerHP += stone;//10‰ñ•œ
                 Debug.Log("<color=blue>š</color>" + "HP+" + stone);
                 Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
@@ -531,7 +525,7 @@ public class Player1naka : MonoBehaviour
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
                 Debug.Log("-----------------------------------------------------");
 
-                Invoke("get", 1);
+                Invoke("Get", 1);
             }
 
 
@@ -607,5 +601,9 @@ public class Player1naka : MonoBehaviour
             SceneManager.LoadScene("Clear");//ƒNƒŠƒA
             walk = false;
         }
+    }
+    void Get()
+    {
+        get = false;
     }
 }
