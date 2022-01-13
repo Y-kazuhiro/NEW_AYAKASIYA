@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement; //シーン遷移させる場合に必要
 public class Player1naka : MonoBehaviour
 {
     //プレイヤー情報
-    public static float PlayerHP = 120;//HP
-    public static float PlayerHPMAX = 120;//HP上限
+    public static float PlayerHP = 50;//HP
+    public static float PlayerHPMAX = 50;//HP上限
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerPowerSub = 2;//攻撃力保管用
@@ -338,12 +338,13 @@ public class Player1naka : MonoBehaviour
             PlayerEXP = 0;
         }
 
-        if (PlayerHP <= 0)//プレーヤーの体力が０以下になるとゲームオーバー
+        if (PlayerHP <= 0 && get == false)//プレーヤーの体力が０以下になるとゲームオーバー
         {
+            get = true;
+
             audioSource.PlayOneShot(sound6);
 
             anim.SetTrigger("Die");
-            PlayerHP = 1;
             Invoke("Die",2);
         }
 
