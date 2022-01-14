@@ -126,7 +126,7 @@ public class Player1naka : MonoBehaviour
 
     void Update()
     {
-        if (P_turn != 0)//プライヤーのターンが残っていたら行動できる
+        if (PlayerHP >= 1 && P_turn != 0)//プライヤーのターンが残っていたら行動できる
         {
             //-----------プレイヤーが移動する　ターン消費あり--------------------
             if (Input.GetKeyDown(KeyCode.UpArrow) && walk == false)
@@ -143,7 +143,21 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 0.5f);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 0.3f);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 0.3f);
+                    }
                 }
             }
 
@@ -161,7 +175,21 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 0.5f);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 0.3f);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 0.3f);
+                    }
                 }
             }
 
@@ -179,7 +207,21 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 0.5f);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 0.3f);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 0.3f);
+                    }
                 }
             }
 
@@ -197,7 +239,21 @@ public class Player1naka : MonoBehaviour
                 if (P_turn == 0)
                 {
                     walk = true;
-                    Invoke("Walk", 0.5f);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 0.3f);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 0.3f);
+                    }
                 }
             }
             //------------------------------------------------------------------
@@ -248,7 +304,21 @@ public class Player1naka : MonoBehaviour
                 P_turn--;
                 Spell--;
                 walk = true;
-                Invoke("Walk", 1);
+                if (SceneManager.GetActiveScene().name == "Last")
+                {
+                    if (Spell == 2)
+                    {
+                        Invoke("Walk", 1);
+                    }
+                    else
+                    {
+                        Invoke("Walk", 3f);
+                    }
+                }
+                else
+                {
+                    Invoke("Walk", 1);
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && walk == false)//範囲必殺技
@@ -264,7 +334,21 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("<color=red>解放に必要な妖気</color>" + Youki + "/15");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
@@ -275,14 +359,42 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("必殺技残り" + PlayerSPAttack + "回");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
                 else if (PlayerSPAttack <= 0)
                 {
                     Debug.Log("<color=red>技が出せない！</color>");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
             }
 
@@ -299,7 +411,21 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("<color=red>解放に必要な妖気</color>" + Youki + "/15");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
@@ -310,14 +436,42 @@ public class Player1naka : MonoBehaviour
                     Debug.Log("必殺技残り" + PlayerSPAttack + "回"); ;
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
                 else if (PlayerSPAttack <= 0)
                 { 
                     Debug.Log("<color=red>技が出せない！</color>");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
-                    Invoke("Walk", 1);
+                    if (SceneManager.GetActiveScene().name == "Last")
+                    {
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
+                    }
+                    else
+                    {
+                        Invoke("Walk", 1);
+                    }
                 }
                 }
         }
@@ -344,6 +498,7 @@ public class Player1naka : MonoBehaviour
         {
             get = true;
             walk = true;
+            P_turn = 0;
 
             audioSource.PlayOneShot(sound6);
 
@@ -354,8 +509,6 @@ public class Player1naka : MonoBehaviour
         StartCoroutine("TurnReset");
 
     }
-
-
 
     //シーン移行と同時にステータスを初期化
     void Die()
@@ -374,9 +527,30 @@ public class Player1naka : MonoBehaviour
         get = false;
         SceneManager.LoadScene("GameOver");
     }
+
     void Walk()
     {
         walk = false;
+    }
+
+
+    void Get()
+    {
+        get = false;
+    }
+
+    void SPattack()
+    {
+        anim.SetTrigger("SPattack");
+        audioSource.PlayOneShot(sound3);
+        PlayerSPAttack--;
+    }
+
+    void SPSPattack()
+    {
+        anim.SetTrigger("2SPattack");
+        audioSource.PlayOneShot(sound3);
+        PlayerSPAttack--;
     }
 
     IEnumerator TurnReset()//ターンリセットする
@@ -393,20 +567,6 @@ public class Player1naka : MonoBehaviour
             yield return null;
             Spell = 4;
         }
-    }
-
-    void SPattack()
-    {
-        anim.SetTrigger("SPattack");
-        audioSource.PlayOneShot(sound3);
-        PlayerSPAttack--;
-    }
-
-    void SPSPattack()
-    {
-        anim.SetTrigger("2SPattack");
-        audioSource.PlayOneShot(sound3);
-        PlayerSPAttack--;
     }
 
     //----------------------------------------//当たり判定処理---------------------------
@@ -609,8 +769,5 @@ public class Player1naka : MonoBehaviour
             walk = false;
         }
     }
-    void Get()
-    {
-        get = false;
-    }
+
 }

@@ -332,6 +332,10 @@ PrefabInstance:
       propertyPath: EnemyHPK
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1440693704265655987, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1440693704265656009, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
       propertyPath: m_Name
       value: EKnight
