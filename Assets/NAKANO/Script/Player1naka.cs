@@ -24,11 +24,14 @@ public class Player1naka : MonoBehaviour
     public static double P_turncount = 0;
     public static bool walk = false;//連続移動防止
     public static bool get = false;//連続回復防止
+    public static bool Event = false;
     double P = 0.5;
 
     public static float PlayerMUKI = 0;//プレイヤーの向き
 
     public static double Spell = 4;
+
+    private GameObject[] BossObjects;  //GameObjectにBossObjectsを格納します
 
     //------------ゴールに必要なポイント----------
     public static float NEXTCOUNT1 = 5;
@@ -126,6 +129,8 @@ public class Player1naka : MonoBehaviour
 
     void Update()
     {
+        BossObjects = GameObject.FindGameObjectsWithTag("Boss");
+
         if (PlayerHP >= 1 && P_turn != 0)//プライヤーのターンが残っていたら行動できる
         {
             //-----------プレイヤーが移動する　ターン消費あり--------------------
@@ -145,13 +150,20 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 0.3f);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 0.3f);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
@@ -177,13 +189,20 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 0.3f);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 0.3f);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
@@ -209,13 +228,20 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 0.3f);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 0.3f);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
@@ -241,13 +267,20 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 0.3f);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 0.3f);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
@@ -304,20 +337,28 @@ public class Player1naka : MonoBehaviour
                 P_turn--;
                 Spell--;
                 walk = true;
+
                 if (SceneManager.GetActiveScene().name == "Last")
                 {
-                    if (Spell == 2)
+                    if (BossObjects.Length == 0)
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 0f);
                     }
                     else
                     {
-                        Invoke("Walk", 3f);
+                        if (Spell == 2)
+                        {
+                            Invoke("Walk", 1);
+                        }
+                        else
+                        {
+                            Invoke("Walk", 3f);
+                        }
                     }
                 }
                 else
                 {
-                    Invoke("Walk", 1);
+                    Invoke("Walk", 1f);
                 }
             }
 
@@ -336,18 +377,25 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
 
@@ -361,18 +409,25 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
                 else if (PlayerSPAttack <= 0)
@@ -382,18 +437,25 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
             }
@@ -413,18 +475,25 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
 
@@ -438,42 +507,56 @@ public class Player1naka : MonoBehaviour
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
                 else if (PlayerSPAttack <= 0)
-                { 
+                {
                     Debug.Log("<color=red>技が出せない！</color>");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Spell == 2)
+                        if (BossObjects.Length == 0)
                         {
-                            Invoke("Walk", 1);
+                            Invoke("Walk", 0f);
                         }
                         else
                         {
-                            Invoke("Walk", 3f);
+                            if (Spell == 2)
+                            {
+                                Invoke("Walk", 1);
+                            }
+                            else
+                            {
+                                Invoke("Walk", 3f);
+                            }
                         }
                     }
                     else
                     {
-                        Invoke("Walk", 1);
+                        Invoke("Walk", 1f);
                     }
                 }
-                }
+            }
         }
 
         if(PlayerEXP>=100)//レベルアップ
@@ -525,6 +608,7 @@ public class Player1naka : MonoBehaviour
         P_turncount = 0;
         P_turn = 0;
         get = false;
+        Event = false;
         SceneManager.LoadScene("GameOver");
     }
 
@@ -753,7 +837,8 @@ public class Player1naka : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Goal4")
-        {
+        {           
+            SceneManager.LoadScene("Clear");//クリア
             PlayerHP = PlayerHPSab;
             PlayerHPMAX = PlayerHPSab;
             PlayerPower = PlayerPowerSub;
@@ -765,8 +850,22 @@ public class Player1naka : MonoBehaviour
             Youki = 0;
             P_turncount = 0;
             P_turn = 0;
-            SceneManager.LoadScene("Clear");//クリア
             walk = false;
+            Event = false;
+            get = false;
+        }
+
+        //最後の会話
+        if (collision.gameObject.tag == "event" && Event == false)
+        {
+            Event = true;
+            Debug.Log("よくぞここまで辿り着きました。");
+            Debug.Log("この先に妖達の大将がいます");
+            Debug.Log("どうか私たちの無念を、");
+            Debug.Log("雪辱を晴らしてください。");
+            Debug.Log("");
+            Debug.Log("ご武運を。");
+            Debug.Log("-----------------------------------------------------");
         }
     }
 

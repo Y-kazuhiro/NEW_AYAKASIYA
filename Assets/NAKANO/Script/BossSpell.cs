@@ -35,6 +35,7 @@ public class BossSpell : MonoBehaviour
             Debug.Log("<color=red>š</color>" + POWERG + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");
+            Invoke("SE", 0.5f);
         }
     }
 
