@@ -119,6 +119,8 @@ public class Player1naka : MonoBehaviour
 
         Boss = GameObject.Find("Boss"); //Enemy変数共有化
         boss = Boss.GetComponent<Boss>();
+
+        walk = false;
         //--------------------------------------------------------------------
     }
 
@@ -341,6 +343,7 @@ public class Player1naka : MonoBehaviour
         if (PlayerHP <= 0 && get == false)//プレーヤーの体力が０以下になるとゲームオーバー
         {
             get = true;
+            walk = true;
 
             audioSource.PlayOneShot(sound6);
 
@@ -349,12 +352,10 @@ public class Player1naka : MonoBehaviour
         }
 
         StartCoroutine("TurnReset");
+
     }
 
-    void Walk()
-    {
-        walk = false;
-    }
+
 
     //シーン移行と同時にステータスを初期化
     void Die()
@@ -370,7 +371,12 @@ public class Player1naka : MonoBehaviour
         Youki = 0;
         P_turncount = 0;
         P_turn = 0;
+        get = false;
         SceneManager.LoadScene("GameOver");
+    }
+    void Walk()
+    {
+        walk = false;
     }
 
     IEnumerator TurnReset()//ターンリセットする
