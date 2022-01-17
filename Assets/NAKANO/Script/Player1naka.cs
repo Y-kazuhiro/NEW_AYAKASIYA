@@ -609,7 +609,9 @@ public class Player1naka : MonoBehaviour
         P_turn = 0;
         get = false;
         Event = false;
-        SceneManager.LoadScene("GameOver");
+        walk = false;
+        //SceneManager.LoadScene("GameOver");
+        FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
 
     void Walk()
@@ -786,7 +788,8 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT1)
             {
-                SceneManager.LoadScene("Nakano3");
+                //SceneManager.LoadScene("Nakano3");
+                FadeManager.Instance.LoadScene("Nakano3", 1.0f);
                 GoalCount++;
                 walk = false;
             }
@@ -799,7 +802,8 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT2)
             {
-                SceneManager.LoadScene("Nakano");
+                //SceneManager.LoadScene("Nakano");
+                FadeManager.Instance.LoadScene("Nakano", 1.0f);
                 GoalCount++;
                 walk = false;
             }
@@ -812,7 +816,8 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT3)
             {
-                SceneManager.LoadScene("Nakano1");//第４ステージに進む
+                //SceneManager.LoadScene("Nakano1");//第４ステージに進む
+                FadeManager.Instance.LoadScene("Nakano1", 1.0f);
                 GoalCount++;
                 walk = false;
             }
@@ -825,7 +830,8 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT4)
             {
-                SceneManager.LoadScene("Last");//ラスステ
+                //SceneManager.LoadScene("Last");//ラスステ
+                FadeManager.Instance.LoadScene("Last", 1.0f);
                 GoalCount++;
                 walk = false;
             }
@@ -839,20 +845,22 @@ public class Player1naka : MonoBehaviour
         if (collision.gameObject.tag == "Goal4")
         {           
             SceneManager.LoadScene("Clear");//クリア
-            PlayerHP = PlayerHPSab;
-            PlayerHPMAX = PlayerHPSab;
-            PlayerPower = PlayerPowerSub;
-            PlayerSPAttack = PlayerSPAttackSub;
-            PlayerSPLock = false;
-            GoalCount = 0;
-            PlayerEXP = 0;
-            NEXTPoint = 0;
-            Youki = 0;
-            P_turncount = 0;
-            P_turn = 0;
-            walk = false;
-            Event = false;
-            get = false;
+            //FadeManager.Instance.LoadScene("Clear", 1.0f);
+            //PlayerHP = PlayerHPSab;
+            //PlayerHPMAX = PlayerHPSab;
+            //PlayerPower = PlayerPowerSub;
+            //PlayerSPAttack = PlayerSPAttackSub;
+            //PlayerSPLock = false;
+            //GoalCount = 0;
+            //PlayerEXP = 0;
+            //NEXTPoint = 0;
+            //Youki = 0;
+            //P_turncount = 0;
+            //P_turn = 0;
+            //walk = false;
+            //Event = false;
+            //get = false;
+            Invoke("Die",2);
         }
 
         //最後の会話
