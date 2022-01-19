@@ -6,10 +6,15 @@ public class EGhost : MonoBehaviour
 {
     //“Gî•ñ
     public float EnemyHPG = 10;
+    public float EnemyHPGMAX = 10;
+    public static float HP = 10;
+    public static float HPMAX = 10;
     public float EnemyPOWERG = 2;
     public float EnemyEXPG = 50;
     public float EnemyPointG = 3;
     public float EnemyYouki = 1;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class EGhost : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHPG <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHPG;
+        HPMAX = EnemyHPGMAX;
+
+        if (EnemyHPG <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
         {
+            Event = true;
+
+            if(EnemyHPG < 0)
+            {
+                EnemyHPG -= EnemyHPG;
+            }
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHPG = 1;
             Player1naka.PlayerEXP += EnemyEXPG;
             Player1naka.NEXTPoint += EnemyPointG;
             Player1naka.Youki += EnemyYouki;
@@ -65,6 +79,12 @@ public class EGhost : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERG;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWERG + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

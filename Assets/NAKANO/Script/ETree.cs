@@ -5,11 +5,16 @@ using UnityEngine;
 public class ETree : MonoBehaviour
 {
     //“Gî•ñ
-    public float EnemyHPT = 20;
-    public float EnemyPOWERT = 5;
-    public float EnemyEXPT = 80;
-    public float EnemyPointT = 8;
-    public float EnemyYouki = 1;
+    public float EnemyHPT = 35;
+    public float EnemyHPTMAX = 35;
+    public static float HP = 35;
+    public static float HPMAX = 35;
+    public float EnemyPOWERT = 2;
+    public float EnemyEXPT = 40;
+    public float EnemyPointT = 5;
+    public float EnemyYouki = 5;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class ETree : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHPT <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHPT;
+        HPMAX = EnemyHPTMAX;
+
+        if (EnemyHPT <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
         {
+            Event = true;
+
+            if (EnemyHPT < 0)
+            {
+                EnemyHPT -= EnemyHPT;
+            }
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHPT = 1;
             Player1naka.PlayerEXP += EnemyEXPT;
             Player1naka.NEXTPoint += EnemyPointT;
             Player1naka.Youki += EnemyYouki;
@@ -77,6 +91,12 @@ public class ETree : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERT;//Player‚ÉUŒ‚
+
+            if(Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWERT + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

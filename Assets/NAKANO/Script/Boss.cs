@@ -5,13 +5,18 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     //敵情報
-    public float BossHP = 50;
-    public float BossPOWER = 10;
+    public float BossHP = 150;
+    public float BossHPMAX = 150;
+    public static float HP = 150;
+    public static float HPMAX = 150;
+    public float BossPOWER = 15;
     public float BossEXP = 500;
     public float BossPoint = 100;
     public static bool active = false;//行動開始
     public static bool attack = false;
     public static bool Voice = false;
+
+    public static bool Event = false;
 
     Rigidbody2D rd2d;
     Animator anim;
@@ -30,6 +35,14 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        HP = BossHP;
+        HPMAX = BossHPMAX;
+
+        if (BossHP < 0)
+        {
+            BossHP -= BossHP;
+        }
+
         EGhostObjects = GameObject.FindGameObjectsWithTag("EGhost");
 
          if (EGhostObjects.Length == 0 && active == false)//EGhostが消えると動き出す
@@ -37,8 +50,10 @@ public class Boss : MonoBehaviour
             active = true;
         }
 
-        if (BossHP <= 0)//Bossの体力が０以下になると消える
-        { 
+        if (BossHP <= 0 && Event == false)//体力が０以下になると消える
+        {
+            Event = true;
+
             Debug.Log("討伐完了");
             Debug.Log("-----------------------------------------------------");
             Invoke("Die", 1);
@@ -90,6 +105,12 @@ public class Boss : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= BossPOWER;//Playerに攻撃
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>★</color>" + BossPOWER + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

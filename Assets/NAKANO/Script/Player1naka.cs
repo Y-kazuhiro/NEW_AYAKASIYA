@@ -570,7 +570,7 @@ public class Player1naka : MonoBehaviour
 
             Debug.Log("<color=blue>šƒŒƒxƒ‹ƒAƒbƒvI</color>");
             Debug.Log("‘Ì—ÍÅ‘å’l + 10");
-            Debug.Log("UŒ‚—Í‚ª + 2");
+            Debug.Log("UŒ‚—Í + 2");
             Debug.Log("•KE‹Z‰ñ” + 2");
             Debug.Log("-----------------------------------------------------");
 
@@ -662,6 +662,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemy.EnemyHP -= PlayerPower;//Enemy‚ÉUŒ‚
+
+            if(enemy.EnemyHP < 0)
+            {
+                enemy.EnemyHP -= enemy.EnemyHP;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
             Debug.Log("-----------------------------------------------------");
@@ -671,6 +677,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemy3.EnemyHP3 -= PlayerPower;//Enemy3‚ÉUŒ‚
+
+            if (enemy3.EnemyHP3 < 0)
+            {
+                enemy3.EnemyHP3 -= enemy3.EnemyHP3;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
             Debug.Log("-----------------------------------------------------");
@@ -680,6 +692,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyG.EnemyHPG -= PlayerPower;//EGhost‚ÉUŒ‚
+
+            if (enemyG.EnemyHPG < 0)
+            {
+                enemyG.EnemyHPG -= enemyG.EnemyHPG;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
             Debug.Log("-----------------------------------------------------");
@@ -689,6 +707,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyL.EnemyHPL -= PlayerPower;//LEnemy‚ÉUŒ‚
+
+            if (enemyL.EnemyHPL < 0)
+            {
+                enemyL.EnemyHPL -= enemyL.EnemyHPL;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
             Debug.Log("-----------------------------------------------------");
@@ -698,6 +722,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyDarkG.EnemyHPDG -= PlayerPower;
+
+            if (enemyDarkG.EnemyHPDG < 0)
+            {
+                enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
             Debug.Log("-----------------------------------------------------");
@@ -707,6 +737,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyKnight.EnemyHPK -= PlayerPower;
+
+            if (enemyKnight.EnemyHPK < 0)
+            {
+                enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
             Debug.Log("-----------------------------------------------------");
@@ -716,6 +752,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyGoblin.EnemyHPGob -= PlayerPower;
+
+            if (enemyGoblin.EnemyHPGob < 0)
+            {
+                enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
             Debug.Log("-----------------------------------------------------");
@@ -725,6 +767,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyGoblin1.EnemyHPGob1 -= PlayerPower;
+
+            if (enemyGoblin1.EnemyHPGob1 < 0)
+            {
+                enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
             Debug.Log("-----------------------------------------------------");
@@ -734,6 +782,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             enemyTree.EnemyHPT -= PlayerPower;
+
+            if (enemyTree.EnemyHPT < 0)
+            {
+                enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
             Debug.Log("-----------------------------------------------------");
@@ -743,6 +797,12 @@ public class Player1naka : MonoBehaviour
         {
             audioSource.PlayOneShot(sound1);
             boss.BossHP -= PlayerPower;
+
+            if (boss.BossHP < 0)
+            {
+                boss.BossHP -= boss.BossHP;
+            }
+
             Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
             Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
             Debug.Log("-----------------------------------------------------");
@@ -758,8 +818,8 @@ public class Player1naka : MonoBehaviour
             {
                 get = true;
                 PlayerHP += PlayerHPMAX - PlayerHP;
-                Debug.Log("<color=blue>š</color>" + "HP+" + stone);
-                Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                Debug.Log("<color=blue>š</color>" + stone + "‰ñ•œ");
+                //Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
@@ -771,8 +831,8 @@ public class Player1naka : MonoBehaviour
             {
                 get = true;
                 PlayerHP += stone;//10‰ñ•œ
-                Debug.Log("<color=blue>š</color>" + "HP+" + stone);
-                Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                Debug.Log("<color=blue>š</color>" + stone + "‰ñ•œ");
+                //Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
                 Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");

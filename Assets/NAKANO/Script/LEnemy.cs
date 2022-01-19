@@ -5,11 +5,16 @@ using UnityEngine;
 public class LEnemy : MonoBehaviour
 {
     //“Gî•ñ
-    public float EnemyHPL = 10;
-    public float EnemyPOWERL = 2;
-    public float EnemyEXPL = 15;
-    public float EnemyPointL = 2;
-    public float EnemyYouki = 1;
+    public float EnemyHPL = 30;
+    public float EnemyHPLMAX = 30;
+    public static float HP = 30;
+    public static float HPMAX = 30;
+    public float EnemyPOWERL = 10;
+    public float EnemyEXPL = 50;
+    public float EnemyPointL = 10;
+    public float EnemyYouki = 10;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class LEnemy : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHPL <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHPL;
+        HPMAX = EnemyHPLMAX;
+
+        if (EnemyHPL < 0)
         {
+            EnemyHPL -= EnemyHPL;
+        }
+
+        if (EnemyHPL <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        {
+            Event = true;
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHPL = 1;
             Player1naka.NEXTPoint += EnemyPointL;
             Player1naka.PlayerEXP += EnemyEXPL;
             Player1naka.Youki += EnemyYouki;
@@ -65,6 +79,12 @@ public class LEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERL;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWERL + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

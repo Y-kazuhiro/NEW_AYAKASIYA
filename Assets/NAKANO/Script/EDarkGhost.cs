@@ -5,11 +5,16 @@ using UnityEngine;
 public class EDarkGhost : MonoBehaviour
 {
     //“Gî•ñ
-    public float EnemyHPDG = 10;
+    public float EnemyHPDG = 15;
+    public float EnemyHPDGMAX = 15;
+    public static float HP = 15;
+    public static float HPMAX = 15;
     public float EnemyPOWERDG = 3;
     public float EnemyEXPDG = 20;
     public float EnemyPointDG = 3;
     public float EnemyYouki = 1;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class EDarkGhost : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHPDG <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHPDG;
+        HPMAX = EnemyHPDGMAX;
+
+        if (EnemyHPDG < 0)
         {
+            EnemyHPDG -= EnemyHPDG;
+        }
+
+        if (EnemyHPDG <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        {
+            Event = true;
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHPDG = 1;
             Player1naka.PlayerEXP += EnemyEXPDG;
             Player1naka.NEXTPoint += EnemyPointDG;
             Player1naka.Youki += EnemyYouki;
@@ -65,6 +79,12 @@ public class EDarkGhost : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERDG;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWERDG + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");
