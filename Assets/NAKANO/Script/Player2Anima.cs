@@ -17,6 +17,7 @@ public class Player2Anima : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Player1naka.PlayerHP >= 1 && stop == false)
         {
             //攻撃アニメーション
@@ -131,7 +132,20 @@ public class Player2Anima : MonoBehaviour
                 if (Player1naka.PlayerMUKI == 4)
                     anim.SetTrigger("SPAttackHIDARI");
             }
+
+            if (Player1naka.Playerlevelflag == true)//レベルアップアニメーション
+            {
+                anim.SetTrigger("レベルup");
+                Player1naka.Playerlevelflag = false;
+            }
+
+            if (Player1naka.PlayerKAIHUKUflag == true)//回復アニメーション
+            {
+                anim.SetTrigger("回復");
+                Player1naka.PlayerKAIHUKUflag = false;
+            }
         }
+      
     }
 
     void Stop()

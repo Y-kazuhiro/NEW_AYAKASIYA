@@ -16,6 +16,8 @@ public class Player1naka : MonoBehaviour
     public static float PlayerSPAttack = 10;//必殺技使用回数
     public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
+    public static bool Playerlevelflag = false;
+    public static bool PlayerKAIHUKUflag = false;
     public static float PlayerEXP = 0;//経験値
     public static float NEXTPoint = 0;//ゴールに必要なポイント数
     public static float GoalCount = 0;
@@ -26,6 +28,10 @@ public class Player1naka : MonoBehaviour
     public static bool get = false;//連続回復防止
     public static bool Event = false;
     double P = 0.5;
+
+    public bool isDamage = false;
+
+    public SpriteRenderer sp;
 
     public static float PlayerMUKI = 0;//プレイヤーの向き
 
@@ -158,7 +164,7 @@ public class Player1naka : MonoBehaviour
                         {
                             if (Spell == 2)
                             {
-                                Invoke("Walk", 0.3f);
+                                Invoke("Walk", 0.0f);
                             }
                             else
                             {
@@ -168,7 +174,7 @@ public class Player1naka : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Walk", 0.3f);
+                        Invoke("Walk", 0.0f);
                     }
                 }
             }
@@ -197,7 +203,7 @@ public class Player1naka : MonoBehaviour
                         {
                             if (Spell == 2)
                             {
-                                Invoke("Walk", 0.3f);
+                                Invoke("Walk", 0.0f);
                             }
                             else
                             {
@@ -207,7 +213,7 @@ public class Player1naka : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Walk", 0.3f);
+                        Invoke("Walk", 0.0f);
                     }
                 }
             }
@@ -236,7 +242,7 @@ public class Player1naka : MonoBehaviour
                         {
                             if (Spell == 2)
                             {
-                                Invoke("Walk", 0.3f);
+                                Invoke("Walk", 0.0f);
                             }
                             else
                             {
@@ -246,7 +252,7 @@ public class Player1naka : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Walk", 0.3f);
+                        Invoke("Walk", 0.0f);
                     }
                 }
             }
@@ -275,7 +281,7 @@ public class Player1naka : MonoBehaviour
                         {
                             if (Spell == 2)
                             {
-                                Invoke("Walk", 0.3f);
+                                Invoke("Walk", 0.0f);
                             }
                             else
                             {
@@ -285,7 +291,7 @@ public class Player1naka : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Walk", 0.3f);
+                        Invoke("Walk", 0.0f);
                     }
                 }
             }
@@ -567,7 +573,8 @@ public class Player1naka : MonoBehaviour
             PlayerHP = PlayerHPMAX;
             PlayerPower += 2;
             PlayerSPAttack += 2;
-
+            PlayerKAIHUKUflag = true;
+            Playerlevelflag = true;
             Debug.Log("<color=blue>★レベルアップ！</color>");
             Debug.Log("体力最大値 + 10");
             Debug.Log("攻撃力が + 2");
@@ -591,6 +598,12 @@ public class Player1naka : MonoBehaviour
 
         StartCoroutine("TurnReset");
 
+        if (isDamage == true)//点滅処理
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 15));
+            sp.color = new Color(1f, 1f, 1f, level);
+            StartCoroutine(OnDamage());
+        }
     }
 
     //シーン移行と同時にステータスを初期化
@@ -653,6 +666,14 @@ public class Player1naka : MonoBehaviour
         }
     }
 
+    IEnumerator OnDamage()//点滅処理
+    {
+        yield return new WaitForSeconds(0.35f);//0.35秒点滅する
+        // 通常状態に戻す
+        isDamage = false;
+        sp.color = new Color(1f, 1f, 1f, 1f);
+    }
+
     //----------------------------------------//当たり判定処理---------------------------
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -663,6 +684,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemy.EnemyHP);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "Enemy3")
@@ -672,6 +694,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemy3.EnemyHP3);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "EGhost")
@@ -681,6 +704,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyG.EnemyHPG);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "LEnemy")
@@ -690,6 +714,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyL.EnemyHPL);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "EDarkGhost")
@@ -699,6 +724,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyDarkG.EnemyHPDG);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "EKnight")
@@ -708,6 +734,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyKnight.EnemyHPK);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "EGoblin")
@@ -717,6 +744,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyGoblin.EnemyHPGob);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "EGoblin1")
@@ -726,6 +754,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyGoblin1.EnemyHPGob1);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "ETree")
@@ -735,6 +764,7 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + enemyTree.EnemyHPT);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "Boss")
@@ -744,12 +774,13 @@ public class Player1naka : MonoBehaviour
             Debug.Log("<color=blue>★</color>" + PlayerPower + "のダメージを与えた");
             Debug.Log("<color=red>★</color>" + "敵HP" + boss.BossHP);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
         if (collision.gameObject.tag == "stone" && get == false)//石取得
         {
             audioSource.PlayOneShot(sound5);
-            float stone = 10;
+            float stone = 15;
             float SPstone = 1;
 
             if (PlayerHP + stone >= PlayerHPMAX)
@@ -759,6 +790,7 @@ public class Player1naka : MonoBehaviour
                 Debug.Log("<color=blue>★</color>" + "HP+" + stone);
                 Debug.Log("<color=blue>★</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
+                PlayerKAIHUKUflag = true;
                 Debug.Log("<color=blue>★</color>" + "必殺技回数+" + SPstone);
                 Debug.Log("<color=blue>★</color>" + "必殺技あと" + PlayerSPAttack + "回");
                 Debug.Log("-----------------------------------------------------");
@@ -775,7 +807,7 @@ public class Player1naka : MonoBehaviour
                 Debug.Log("<color=blue>★</color>" + "必殺技回数+" + SPstone);
                 Debug.Log("<color=blue>★</color>" + "必殺技あと" + PlayerSPAttack + "回");
                 Debug.Log("-----------------------------------------------------");
-
+                PlayerKAIHUKUflag = true;
                 Invoke("Get", 1);
             }
 

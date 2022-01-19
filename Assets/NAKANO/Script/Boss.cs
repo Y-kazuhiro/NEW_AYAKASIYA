@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
     public static bool active = false;//行動開始
     public static bool attack = false;
     public static bool Voice = false;
+    public bool isDamage = false;
+    public SpriteRenderer sp;
 
     Rigidbody2D rd2d;
     Animator anim;
@@ -67,6 +69,12 @@ public class Boss : MonoBehaviour
                 Invoke("Spell", 1);
             }
         }
+        if (isDamage == true)//点滅処理
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 18));
+            sp.color = new Color(1f, 1f, 1f, level);
+            StartCoroutine(OnDamage());
+        }
     }
 
     void Spell()
@@ -93,8 +101,17 @@ public class Boss : MonoBehaviour
             Debug.Log("<color=red>★</color>" + BossPOWER + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
         }
 
+    }
+
+    IEnumerator OnDamage()
+    {
+        yield return new WaitForSeconds(0.35f);//0.35秒点滅する
+        // 通常状態に戻す
+        isDamage = false;
+        sp.color = new Color(1f, 1f, 1f, 1f);
     }
 }
 

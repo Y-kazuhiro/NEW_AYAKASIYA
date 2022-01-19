@@ -10,7 +10,9 @@ public class EGoblin1 : MonoBehaviour
     public float EnemyEXPGob1 = 10;
     public float EnemyPointGob1 = 1;
     public float EnemyYouki = 1;
+    public bool isDamage = false;
 
+    public SpriteRenderer sp;
     Animator anim;
 
     AudioSource audioSource;
@@ -53,6 +55,12 @@ public class EGoblin1 : MonoBehaviour
             Debug.Log("-----------------------------------------------------");
             Invoke("Die", 1);
         }
+        if (isDamage == true)//点滅処理
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 18));
+            sp.color = new Color(1f, 1f, 1f, level);
+            StartCoroutine(OnDamage());
+        }
     }
 
     void Die()
@@ -68,8 +76,16 @@ public class EGoblin1 : MonoBehaviour
             Debug.Log("<color=red>★</color>" + EnemyPOWERGob1 + "のダメージを受けた");
             Debug.Log("<color=blue>★</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");
+            isDamage = true;
+            
         }
+    }
+    IEnumerator OnDamage()
+    {
+        yield return new WaitForSeconds(0.35f);//0.35秒点滅する
 
-
+        // 通常状態に戻す
+        isDamage = false;
+        sp.color = new Color(1f, 1f, 1f, 1f);
     }
 }

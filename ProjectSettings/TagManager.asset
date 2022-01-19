@@ -28,6 +28,7 @@ TagManager:
   - Goal3
   - Goal4
   - event
+  - PlayerLAST
   layers:
   - Default
   - TransparentFX
