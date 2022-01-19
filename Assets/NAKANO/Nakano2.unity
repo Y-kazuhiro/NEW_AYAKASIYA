@@ -67097,6 +67097,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2832970405308573200, guid: 51376705b7990b4459c30d05f9c7bb76, type: 3}
   m_PrefabInstance: {fileID: 1581728225}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1832926201 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 77561391069363325, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+  m_PrefabInstance: {fileID: 1853306731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1853306731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67124,6 +67129,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3131220187009850194, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+      propertyPath: sp
+      value: 
+      objectReference: {fileID: 1832926201}
     - target: {fileID: 3944618900358104558, guid: 790107e94a034e342842b2cb7757971d, type: 3}
       propertyPath: m_RootOrder
       value: 22
