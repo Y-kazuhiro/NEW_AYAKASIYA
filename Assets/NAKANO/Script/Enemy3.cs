@@ -71,6 +71,7 @@ public class Enemy3 : MonoBehaviour
 
     void Die()
     {
+        Event = false;
         Destroy(this.gameObject);//ÇPïbå„Ç…è¡Ç¶ÇÈ
     }
 
