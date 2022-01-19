@@ -97,6 +97,7 @@ public class Boss : MonoBehaviour
 
     void Die()
     {
+        Event = false;
         Destroy(this.gameObject);
     }
 
