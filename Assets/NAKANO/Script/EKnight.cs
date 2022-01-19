@@ -5,11 +5,16 @@ using UnityEngine;
 public class EKnight : MonoBehaviour
 {
     //“Gî•ñ
-    public float EnemyHPK = 12;
+    public float EnemyHPK = 20;
+    public float EnemyHPKMAX = 20;
+    public static float HP = 20;
+    public static float HPMAX = 20;
     public float EnemyPOWERK = 5;
-    public float EnemyEXPK = 25;
+    public float EnemyEXPK = 30;
     public float EnemyPointK = 5;
-    public float EnemyYouki = 1;
+    public float EnemyYouki = 3;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class EKnight : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHPK <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHPK;
+        HPMAX = EnemyHPKMAX;
+
+        if (EnemyHPK < 0)
         {
+            EnemyHPK -= EnemyHPK;
+        }
+
+        if (EnemyHPK <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        {
+            Event = true;
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHPK = 1;
             Player1naka.PlayerEXP += EnemyEXPK;
             Player1naka.NEXTPoint += EnemyPointK;
             Player1naka.Youki += EnemyYouki;
@@ -65,6 +79,12 @@ public class EKnight : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWERK;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWERK + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

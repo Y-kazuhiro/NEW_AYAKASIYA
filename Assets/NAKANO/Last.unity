@@ -16118,6 +16118,14 @@ PrefabInstance:
       propertyPath: sound2
       value: 
       objectReference: {fileID: 8300000, guid: 681d35a294e94f94ca9eb270423454c7, type: 3}
+    - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
+      propertyPath: BossHPMAX
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
+      propertyPath: BossPOWER
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2513318754248343177, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -17428,6 +17436,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2518321463119101438, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 2665452022658868443, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -17495,6 +17507,10 @@ PrefabInstance:
     - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: EnemyEXPG
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
+      propertyPath: EnemyHPGMAX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: EnemyPOWERG

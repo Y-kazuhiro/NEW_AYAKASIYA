@@ -6,10 +6,15 @@ public class Enemy3 : MonoBehaviour
 {
     //“Gî•ñ
     public float EnemyHP3 = 10;
+    public float EnemyHP3MAX = 10;
+    public static float HP = 10;
+    public static float HPMAX = 10;
     public float EnemyPOWER3 = 2;
-    public float EnemyEXP3 = 10;
+    public float EnemyEXP3 = 5;
     public float EnemyPoint3 = 1;
     public float EnemyYouki = 1;
+
+    public static bool Event = false;
 
     Animator anim;
 
@@ -24,14 +29,23 @@ public class Enemy3 : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHP3 <= 0)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        HP = EnemyHP3;
+        HPMAX = EnemyHP3MAX;
+
+        if (EnemyHP3 < 0)
         {
+            EnemyHP3 -= EnemyHP3;
+        }
+
+        if (EnemyHP3 <= 0 && Event == false)//‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆÁ‚¦‚é
+        {
+            Event = true;
+
             audioSource.PlayOneShot(sound1);
 
             GetComponent<BoxCollider2D>().enabled = false;
 
             anim.SetTrigger("Die");
-            EnemyHP3 = 1;
             Player1naka.PlayerEXP += EnemyEXP3;
             Player1naka.NEXTPoint += EnemyPoint3;
             Player1naka.Youki += EnemyYouki;
@@ -67,6 +81,12 @@ public class Enemy3 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player1naka.PlayerHP -= EnemyPOWER3;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + EnemyPOWER3 + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");

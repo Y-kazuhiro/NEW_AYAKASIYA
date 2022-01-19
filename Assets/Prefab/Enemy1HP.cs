@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TrunText : MonoBehaviour
+public class Enemy1HP : MonoBehaviour
 {
     public GameObject Trun_object = null;
 
@@ -11,6 +11,6 @@ public class TrunText : MonoBehaviour
     void Update()
     {
         Text Trun_text = Trun_object.GetComponent<Text>();
-        Trun_text.text = "HP " + Player1naka.PlayerHP + "/" + Player1naka.PlayerHPMAX;
+        Trun_text.text = Enemy1.HP + "/" + Enemy1.HPMAX;
     }
 }

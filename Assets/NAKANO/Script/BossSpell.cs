@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossSpell : MonoBehaviour
 {
-    public float POWERG = 6;
+    public float POWERG = 10;
     public static bool active = false;
     public static bool se = false;
 
@@ -32,6 +32,12 @@ public class BossSpell : MonoBehaviour
         {
             se = false;
             Player1naka.PlayerHP -= POWERG;//Player‚ÉUŒ‚
+
+            if (Player1naka.PlayerHP < 0)
+            {
+                Player1naka.PlayerHP -= Player1naka.PlayerHP;
+            }
+
             Debug.Log("<color=red>š</color>" + POWERG + "‚Ìƒ_ƒ[ƒW‚ğó‚¯‚½");
             Debug.Log("<color=blue>š</color>" + "HP" + Player1naka.PlayerHP);
             Debug.Log("-----------------------------------------------------");
