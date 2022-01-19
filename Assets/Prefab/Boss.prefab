@@ -483,6 +483,8 @@ MonoBehaviour:
   BossPOWER: 10
   BossEXP: 500
   BossPoint: 100
+  isDamage: 0
+  sp: {fileID: 8951607641348352996}
   sound1: {fileID: 8300000, guid: a6a5a829dec018b4eb2cda0cdb003996, type: 3}
 --- !u!82 &5082373838636563030
 AudioSource:

@@ -132,6 +132,19 @@ public class Player2Anima : MonoBehaviour
                     anim.SetTrigger("SPAttackHIDARI");
             }
         }
+        if (Player1naka.Playerlevelflag == true)//レベルアップアニメーション
+        {
+            anim.SetTrigger("レベルup");
+            Player1naka.Playerlevelflag = false;
+        }
+
+
+
+        if (Player1naka.PlayerKAIHUKUflag == true)//回復アニメーション
+        {
+            anim.SetTrigger("回復");
+            Player1naka.PlayerKAIHUKUflag = false;
+        }
     }
 
     void Stop()

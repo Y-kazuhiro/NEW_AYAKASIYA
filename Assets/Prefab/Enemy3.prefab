@@ -235,6 +235,8 @@ MonoBehaviour:
   EnemyEXP3: 5
   EnemyPoint3: 1
   EnemyYouki: 1
+  isDamage: 0
+  sp: {fileID: 2608112749386874823}
   sound1: {fileID: 8300000, guid: 78286412f5c496048850e9028cd0752a, type: 3}
 --- !u!82 &2443323073810777130
 AudioSource:
