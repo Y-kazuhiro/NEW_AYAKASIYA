@@ -81,7 +81,6 @@ public class Boss : MonoBehaviour
 
             anim.SetTrigger("Die");
             Voice = true;
-            BossHP = 1;
 
         }
 

@@ -13,14 +13,14 @@ public class Player1naka : MonoBehaviour
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerPowerSub = 2;//攻撃力保管用
-    public static float PlayerSPAttack = 10;//必殺技使用回数
+    public static float PlayerSPAttack = 100;//必殺技使用回数
     public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
     public static float PlayerEXP = 0;//経験値
     public static float NEXTPoint = 0;//ゴールに必要なポイント数
     public static float GoalCount = 0;
     public static float P_turn = 2;//プレイヤーターン　　２回行動
-    public static float Youki = 0;//妖気
+    public static float Youki = 15;//妖気
     public static double P_turncount = 0;
     public static bool walk = false;//連続移動防止
     public static bool get = false;//連続回復防止
@@ -134,6 +134,11 @@ public class Player1naka : MonoBehaviour
     void Update()
     {
         BossObjects = GameObject.FindGameObjectsWithTag("Boss");
+
+        if (Youki >= 15)
+        {
+            PlayerSPLock = true;
+        }
 
         if (PlayerHP >= 1 && P_turn != 0)//プライヤーのターンが残っていたら行動できる
         {
@@ -366,12 +371,10 @@ public class Player1naka : MonoBehaviour
                 }
             }
 
+
+
             if (Input.GetKeyDown(KeyCode.Q) && walk == false)//範囲必殺技
             {
-                if (Youki >= 15)
-                {
-                    PlayerSPLock = true;
-                }
 
                 if (PlayerSPLock == false)
                 {
@@ -466,10 +469,6 @@ public class Player1naka : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && walk == false)//横必殺技
             {
-                if (Youki >= 15)
-                {
-                    PlayerSPLock = true;
-                }
 
                 if (PlayerSPLock == false)
                 {
@@ -570,7 +569,7 @@ public class Player1naka : MonoBehaviour
             StartCoroutine(OnDamage());
         }
 
-        if (PlayerEXP>=100)//レベルアップ
+        if (PlayerEXP >= 100 && PlayerHP >= 1)//レベルアップ
         {
             audioSource.PlayOneShot(sound7);
 
@@ -599,7 +598,7 @@ public class Player1naka : MonoBehaviour
             audioSource.PlayOneShot(sound6);
 
             anim.SetTrigger("Die");
-            Invoke("Die",2);
+            Invoke("Die",3);
         }
 
         StartCoroutine("TurnReset");

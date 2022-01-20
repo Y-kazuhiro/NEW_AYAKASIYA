@@ -958,6 +958,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3131220187009850194, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+      propertyPath: sp
+      value: 
+      objectReference: {fileID: 619531472}
     - target: {fileID: 3944618900358104558, guid: 790107e94a034e342842b2cb7757971d, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1012,6 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+--- !u!212 &619531472 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 77561391069363325, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+  m_PrefabInstance: {fileID: 619531471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658205916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3175,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 410802691415019552, guid: 071bd26eeb6756d4b9e660e45dd368b2, type: 3}
+      propertyPath: EnemyHPGob1
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 410802691415019552, guid: 071bd26eeb6756d4b9e660e45dd368b2, type: 3}
+      propertyPath: EnemyEXPGob1
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 410802691415019552, guid: 071bd26eeb6756d4b9e660e45dd368b2, type: 3}
+      propertyPath: EnemyHPGob1MAX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 410802691415019552, guid: 071bd26eeb6756d4b9e660e45dd368b2, type: 3}
+      propertyPath: EnemyPOWERGob1
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 410802691415019554, guid: 071bd26eeb6756d4b9e660e45dd368b2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3364,7 +3389,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440693704265655986, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
       propertyPath: EnemyHPK
-      value: 20
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440693704265655986, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
+      propertyPath: EnemyEXPK
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440693704265655986, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
+      propertyPath: EnemyHPKMAX
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440693704265655986, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
+      propertyPath: EnemyPOWERK
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1440693704265656009, guid: 00cb8ede7dbd3b2458eb2aadf090b19f, type: 3}
       propertyPath: m_Name
@@ -29635,6 +29672,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1661283577421608901, guid: 8f464f4db0556d34fba0b65324ee6ab2, type: 3}
+      propertyPath: EnemyHPDG
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661283577421608901, guid: 8f464f4db0556d34fba0b65324ee6ab2, type: 3}
+      propertyPath: EnemyEXPDG
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661283577421608901, guid: 8f464f4db0556d34fba0b65324ee6ab2, type: 3}
+      propertyPath: EnemyHPDGMAX
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661283577421608901, guid: 8f464f4db0556d34fba0b65324ee6ab2, type: 3}
+      propertyPath: EnemyPOWERDG
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1661283577421608920, guid: 8f464f4db0556d34fba0b65324ee6ab2, type: 3}
       propertyPath: m_Size.x
       value: 0.3340258
@@ -29726,8 +29779,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2608112749386874817, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
+      propertyPath: EnemyHP3
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608112749386874817, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
       propertyPath: EnemyEXP3
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608112749386874817, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
+      propertyPath: EnemyHP3MAX
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608112749386874817, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
+      propertyPath: EnemyPOWER3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2608112749386874821, guid: 43737ccec2f82bc4487d642a1198a42a, type: 3}
       propertyPath: m_Name
@@ -29836,7 +29901,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: EnemyHPL
-      value: 25
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
+      propertyPath: EnemyEXPL
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
+      propertyPath: EnemyHPLMAX
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
+      propertyPath: EnemyPOWERL
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936171, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: m_Name
@@ -29920,8 +29997,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
+      propertyPath: EnemyHPGob
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
+      propertyPath: EnemyEXPGob
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
+      propertyPath: EnemyHPGobMAX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: EnemyPOWERGob
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7765583273080590140, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -29993,8 +30082,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 4010742814430260733, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
+      propertyPath: EnemyHP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010742814430260733, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
       propertyPath: EnemyEXP
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010742814430260733, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
+      propertyPath: EnemyHPMAX
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010742814430260733, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
+      propertyPath: EnemyPOWER
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4010742814430260734, guid: 4ca5e022b82a7a44ea322cd44206dfa0, type: 3}
       propertyPath: m_Size.x
@@ -32770,6 +32871,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4618427549427929684, guid: ddf1c1ad7cddc0646889c25e6a02e351, type: 3}
+      propertyPath: EnemyHPT
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618427549427929684, guid: ddf1c1ad7cddc0646889c25e6a02e351, type: 3}
+      propertyPath: EnemyEXPT
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618427549427929684, guid: ddf1c1ad7cddc0646889c25e6a02e351, type: 3}
+      propertyPath: EnemyHPTMAX
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618427549427929684, guid: ddf1c1ad7cddc0646889c25e6a02e351, type: 3}
+      propertyPath: EnemyPOWERT
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4618427549427929687, guid: ddf1c1ad7cddc0646889c25e6a02e351, type: 3}
       propertyPath: m_Size.x
       value: 0.33234602
@@ -32874,7 +32991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: EnemyEXPG
-      value: 50
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5501225779004881308, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: m_Size.x
