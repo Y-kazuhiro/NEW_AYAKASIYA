@@ -59620,6 +59620,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3131220187009850194, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+      propertyPath: sp
+      value: 
+      objectReference: {fileID: 2040888072}
     - target: {fileID: 3944618900358104558, guid: 790107e94a034e342842b2cb7757971d, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -59674,6 +59678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+--- !u!212 &2040888072 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 77561391069363325, guid: 790107e94a034e342842b2cb7757971d, type: 3}
+  m_PrefabInstance: {fileID: 2040888071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2047793510
 GameObject:
   m_ObjectHideFlags: 0
