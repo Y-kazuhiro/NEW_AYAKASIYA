@@ -599,6 +599,7 @@ public class Player1naka : MonoBehaviour
 
             anim.SetTrigger("Die");
             Invoke("Die",3);
+            FadeManager.Instance.LoadScene("GameOver", 3);
         }
 
         StartCoroutine("TurnReset");
@@ -623,7 +624,6 @@ public class Player1naka : MonoBehaviour
         Event = false;
         walk = false;
         //SceneManager.LoadScene("GameOver");
-        FadeManager.Instance.LoadScene("GameOver", 1.0f);
     }
 
     void Walk()

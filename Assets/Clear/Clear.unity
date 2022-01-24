@@ -608,7 +608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u30BF\u30A4\u30C8\u30EB"
+  m_Text: 
 --- !u!222 &1054635315
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -654,8 +654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9, y: -181}
-  m_SizeDelta: {x: 360.0875, y: 83.8496}
+  m_AnchoredPosition: {x: -0.00000095367, y: -126}
+  m_SizeDelta: {x: 164.75, y: 58.59}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1383552537
 MonoBehaviour:
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d53d9dd6f12ed94da36d83d28038244, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b3f116e045808f47932318764756982, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -831,8 +831,8 @@ Canvas:
   m_GameObject: {fileID: 1814119941}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 386877181}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -841,7 +841,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1814119945
 RectTransform:
