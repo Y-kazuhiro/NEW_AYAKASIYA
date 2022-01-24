@@ -13,7 +13,7 @@ public class Player1naka : MonoBehaviour
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerPowerSub = 2;//攻撃力保管用
-    public static float PlayerSPAttack = 100;//必殺技使用回数
+    public static float PlayerSPAttack = 0;//必殺技使用回数
     public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
     public static float PlayerEXP = 0;//経験値
@@ -939,8 +939,8 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "Goal4")
         {           
-            SceneManager.LoadScene("Clear");//クリア
-            //FadeManager.Instance.LoadScene("Clear", 1.0f);
+            //SceneManager.LoadScene("Clear");//クリア
+            FadeManager.Instance.LoadScene("Clear", 3.0f);
             //PlayerHP = PlayerHPSab;
             //PlayerHPMAX = PlayerHPSab;
             //PlayerPower = PlayerPowerSub;
@@ -955,7 +955,7 @@ public class Player1naka : MonoBehaviour
             //walk = false;
             //Event = false;
             //get = false;
-            Invoke("Die",2);
+            Invoke("Die",3);
         }
 
         //最後の会話
