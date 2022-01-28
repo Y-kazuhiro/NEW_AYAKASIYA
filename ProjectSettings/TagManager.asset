@@ -28,6 +28,8 @@ TagManager:
   - Goal3
   - Goal4
   - event
+  - HANTEI
+  - hantei
   layers:
   - Default
   - TransparentFX
@@ -38,7 +40,7 @@ TagManager:
   - Ground
   - Object
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
