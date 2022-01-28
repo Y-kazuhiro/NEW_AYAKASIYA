@@ -970,6 +970,11 @@ public class Player1naka : MonoBehaviour
             Debug.Log("ご武運を。");
             Debug.Log("-----------------------------------------------------");
         }
+
+        //if (collision.gameObject.tag == "hantei")
+        //{
+        //    Debug.Log("近くにアイテムがありそうだ");
+        //}
     }
 
 }
