@@ -13,9 +13,10 @@ public class Player1naka : MonoBehaviour
     public static float PlayerHPSab = 50;//HP•ÛŠÇ—p
     public static float PlayerPower = 2;//UŒ‚—Í
     public static float PlayerPowerSub = 2;//UŒ‚—Í•ÛŠÇ—p
-    public static float PlayerSPAttack = 0;//•KE‹Zg—p‰ñ”
+    public static float PlayerSPAttack = 100;//•KE‹Zg—p‰ñ”
     public static float PlayerSPAttackSub = 10;//•KE‹Zg—p‰ñ”•ÛŠÇ—p
     public static bool PlayerSPLock = false;//•KE‹ZƒƒbƒN
+    public static bool SP1 = false;//•KE‹Z”»’è
     public static float PlayerEXP = 0;//ŒoŒ±’l
     public static float NEXTPoint = 0;//ƒS[ƒ‹‚É•K—v‚Èƒ|ƒCƒ“ƒg”
     public static float GoalCount = 0;
@@ -373,9 +374,8 @@ public class Player1naka : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.Q) && walk == false)//”ÍˆÍ•KE‹Z
+            if (Input.GetKeyDown(KeyCode.Q) && walk == false)//”ÍˆÍ•KE‹Z-------------------------
             {
-
                 if (PlayerSPLock == false)
                 {
                     Debug.Log("<color=red>‰ğ•ú‚³‚ê‚Ä‚¢‚È‚¢</color>");
@@ -408,6 +408,7 @@ public class Player1naka : MonoBehaviour
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
                 {
+                    SP1 = true;
                     SPattack();
                     P_turn--;
                     Spell--;
@@ -465,11 +466,11 @@ public class Player1naka : MonoBehaviour
                         Invoke("Walk", 1f);
                     }
                 }
-            }
+            }//------------------------------------------------------------------------------------
 
-            if (Input.GetKeyDown(KeyCode.E) && walk == false)//‰¡•KE‹Z
+
+            if (Input.GetKeyDown(KeyCode.E) && walk == false)//‰¡•KE‹Z------------------------------
             {
-
                 if (PlayerSPLock == false)
                 {
                     Debug.Log("<color=red>‰ğ•ú‚³‚ê‚Ä‚¢‚È‚¢</color>");
@@ -502,10 +503,11 @@ public class Player1naka : MonoBehaviour
 
                 if (PlayerSPAttack >= 1 && PlayerSPLock == true)
                 {
+                    SP1 = true;
                     SPSPattack();
                     P_turn--;
                     Spell--;
-                    Debug.Log("•KE‹Zc‚è" + PlayerSPAttack + "‰ñ"); ;
+                    Debug.Log("•KE‹Zc‚è" + PlayerSPAttack + "‰ñ");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -559,7 +561,7 @@ public class Player1naka : MonoBehaviour
                         Invoke("Walk", 1f);
                     }
                 }
-            }
+            }//-------------------------------------------------------------------------------
         }
 
         if (isDamage == true)
@@ -639,14 +641,14 @@ public class Player1naka : MonoBehaviour
 
     void SPattack()
     {
-        anim.SetTrigger("SPattack");
+        //anim.SetTrigger("SPattack");
         audioSource.PlayOneShot(sound3);
         PlayerSPAttack--;
     }
 
     void SPSPattack()
     {
-        anim.SetTrigger("2SPattack");
+        //anim.SetTrigger("2SPattack");
         audioSource.PlayOneShot(sound3);
         PlayerSPAttack--;
     }
@@ -685,162 +687,322 @@ public class Player1naka : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            audioSource.PlayOneShot(sound1);
-            enemy.EnemyHP -= PlayerPower;//Enemy‚ÉUŒ‚
-
-            if(enemy.EnemyHP < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemy.EnemyHP -= enemy.EnemyHP;
-            }
+                SP1 = false;
+                enemy.EnemyHP -= 2 * PlayerPower;//©•KE‹Z‚ÍŒ»İ‚ÌUŒ‚—Í‚Ì2”{‚ÌUŒ‚‚ğ‚·‚é
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemy.EnemyHP < 0)
+                {
+                    enemy.EnemyHP -= enemy.EnemyHP;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemy.EnemyHP -= PlayerPower;
+
+                if (enemy.EnemyHP < 0)
+                {
+                    enemy.EnemyHP -= enemy.EnemyHP;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "Enemy3")
         {
-            audioSource.PlayOneShot(sound1);
-            enemy3.EnemyHP3 -= PlayerPower;//Enemy3‚ÉUŒ‚
-
-            if (enemy3.EnemyHP3 < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemy3.EnemyHP3 -= enemy3.EnemyHP3;
-            }
+                SP1 = false;
+                enemy3.EnemyHP3 -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemy3.EnemyHP3 < 0)
+                {
+                    enemy3.EnemyHP3 -= enemy3.EnemyHP3;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemy3.EnemyHP3 -= PlayerPower;
+
+                if (enemy3.EnemyHP3 < 0)
+                {
+                    enemy3.EnemyHP3 -= enemy3.EnemyHP3;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }    
         }
 
         if (collision.gameObject.tag == "EGhost")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyG.EnemyHPG -= PlayerPower;//EGhost‚ÉUŒ‚
-
-            if (enemyG.EnemyHPG < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyG.EnemyHPG -= enemyG.EnemyHPG;
-            }
+                SP1 = false;
+                enemyG.EnemyHPG -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyG.EnemyHPG < 0)
+                {
+                    enemyG.EnemyHPG -= enemyG.EnemyHPG;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyG.EnemyHPG -= PlayerPower;
+
+                if (enemyG.EnemyHPG < 0)
+                {
+                    enemyG.EnemyHPG -= enemyG.EnemyHPG;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }       
         }
 
         if (collision.gameObject.tag == "LEnemy")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyL.EnemyHPL -= PlayerPower;//LEnemy‚ÉUŒ‚
-
-            if (enemyL.EnemyHPL < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyL.EnemyHPL -= enemyL.EnemyHPL;
-            }
+                SP1 = false;
+                enemyL.EnemyHPL -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyL.EnemyHPL < 0)
+                {
+                    enemyL.EnemyHPL -= enemyL.EnemyHPL;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyL.EnemyHPL -= PlayerPower;
+
+                if (enemyL.EnemyHPL < 0)
+                {
+                    enemyL.EnemyHPL -= enemyL.EnemyHPL;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "EDarkGhost")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyDarkG.EnemyHPDG -= PlayerPower;
-
-            if (enemyDarkG.EnemyHPDG < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
-            }
+                SP1 = false;
+                enemyDarkG.EnemyHPDG -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyDarkG.EnemyHPDG < 0)
+                {
+                    enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyDarkG.EnemyHPDG -= PlayerPower;
+
+                if (enemyDarkG.EnemyHPDG < 0)
+                {
+                    enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "EKnight")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyKnight.EnemyHPK -= PlayerPower;
-
-            if (enemyKnight.EnemyHPK < 0)
+            if(SP1==true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
+                SP1 = false;
+                enemyKnight.EnemyHPK -= 2*PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                
+                if (enemyKnight.EnemyHPK < 0)
+                {
+                    enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
+                }
+                Debug.Log("<color=blue>š</color>" + 2*PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
             }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyKnight.EnemyHPK -= PlayerPower;
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyKnight.EnemyHPK < 0)
+                {
+                    enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }          
         }
 
         if (collision.gameObject.tag == "EGoblin")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyGoblin.EnemyHPGob -= PlayerPower;
-
-            if (enemyGoblin.EnemyHPGob < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
-            }
+                SP1 = false;
+                enemyGoblin.EnemyHPGob -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyGoblin.EnemyHPGob < 0)
+                {
+                    enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyGoblin.EnemyHPGob -= PlayerPower;
+
+                if (enemyGoblin.EnemyHPGob < 0)
+                {
+                    enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "EGoblin1")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyGoblin1.EnemyHPGob1 -= PlayerPower;
-
-            if (enemyGoblin1.EnemyHPGob1 < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
-            }
+                SP1 = false;
+                enemyGoblin1.EnemyHPGob1 -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyGoblin1.EnemyHPGob1 < 0)
+                {
+                    enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyGoblin1.EnemyHPGob1 -= PlayerPower;
+
+                if (enemyGoblin1.EnemyHPGob1 < 0)
+                {
+                    enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "ETree")
         {
-            audioSource.PlayOneShot(sound1);
-            enemyTree.EnemyHPT -= PlayerPower;
-
-            if (enemyTree.EnemyHPT < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
-            }
+                SP1 = false;
+                enemyTree.EnemyHPT -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (enemyTree.EnemyHPT < 0)
+                {
+                    enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                enemyTree.EnemyHPT -= PlayerPower;
+
+                if (enemyTree.EnemyHPT < 0)
+                {
+                    enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "Boss")
         {
-            audioSource.PlayOneShot(sound1);
-            boss.BossHP -= PlayerPower;
-
-            if (boss.BossHP < 0)
+            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
             {
-                boss.BossHP -= boss.BossHP;
-            }
+                SP1 = false;
+                boss.BossHP -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
 
-            Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-            Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
-            Debug.Log("-----------------------------------------------------");
-            Invoke("Damage", 0.5f);
+                if (boss.BossHP < 0)
+                {
+                    boss.BossHP -= boss.BossHP;
+                }
+                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
+            else//’ÊíUŒ‚
+            {
+                audioSource.PlayOneShot(sound1);
+                boss.BossHP -= PlayerPower;
+
+                if (boss.BossHP < 0)
+                {
+                    boss.BossHP -= boss.BossHP;
+                }
+                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
+                Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
+                Debug.Log("-----------------------------------------------------");
+                Invoke("Damage", 0.5f);
+            }
         }
 
         if (collision.gameObject.tag == "stone" && get == false)//Îæ“¾
