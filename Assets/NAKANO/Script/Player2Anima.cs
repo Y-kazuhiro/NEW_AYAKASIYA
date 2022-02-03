@@ -28,18 +28,18 @@ public class Player2Anima : MonoBehaviour
                     stop = true;
                     if (SceneManager.GetActiveScene().name == "Last")
                     {
-                        if (Player1naka.Spell == 0)
+                        if (Player1naka.Spell == 0)//
                         {
                             Invoke("Stop", 3f);
                         }
                         else
                         {
-                            Invoke("Stop", 0.3f);
+                            Invoke("Stop", 1.0f);
                         }
                     }
                     else
                     {
-                        Invoke("Stop", 0.3f);
+                        Invoke("Stop", 1.0f);
                     }
 
                 }
@@ -52,7 +52,7 @@ public class Player2Anima : MonoBehaviour
                     {
                         if (Player1naka.Spell == 2)
                         {
-                            Invoke("Stop", 0.3f);
+                            Invoke("Stop", 1.0f);
                         }
                         else
                         {
@@ -61,7 +61,7 @@ public class Player2Anima : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Stop", 0.3f);
+                        Invoke("Stop", 1.0f);
                     }
                 }
 
@@ -73,7 +73,7 @@ public class Player2Anima : MonoBehaviour
                     {
                         if (Player1naka.Spell == 2)
                         {
-                            Invoke("Stop", 0.3f);
+                            Invoke("Stop", 1.0f);
                         }
                         else
                         {
@@ -82,7 +82,7 @@ public class Player2Anima : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Stop", 0.3f);
+                        Invoke("Stop", 1.0f);
                     }
                 }
 
@@ -94,7 +94,7 @@ public class Player2Anima : MonoBehaviour
                     {
                         if (Player1naka.Spell == 2)
                         {
-                            Invoke("Stop", 0.3f);
+                            Invoke("Stop", 1.30f);
                         }
                         else
                         {
@@ -103,7 +103,7 @@ public class Player2Anima : MonoBehaviour
                     }
                     else
                     {
-                        Invoke("Stop", 0.3f);
+                        Invoke("Stop", 1.0f);
                     }
                 }
             }
@@ -113,31 +113,49 @@ public class Player2Anima : MonoBehaviour
             //SP範囲攻撃アニメーション
             if (Player1naka.PlayerSPLock == true && Player1naka.PlayerSPAttack >= 1 && Input.GetKeyDown(KeyCode.Q))//スペースで攻撃
             {
+                stop = true;
                 anim.SetTrigger("SPAttack");
+                Invoke("Stop", 1.0f);//連発できないようにちょっと待つ
             }
 
             //SP直線攻撃アニメーション
             if (Player1naka.PlayerSPLock == true && Player1naka.PlayerSPAttack >= 1 && Input.GetKeyDown(KeyCode.E))//スペースで攻撃
             {
                 if (Player1naka.PlayerMUKI == 1)
+                {
+                    stop = true;
                     anim.SetTrigger("SPAttackUE");
+                    Invoke("Stop", 1.0f);
+                }
 
                 if (Player1naka.PlayerMUKI == 2)
+                {
+                    stop = true;
                     anim.SetTrigger("SPAttackSITA");
+                    Invoke("Stop", 1.0f);
+                }
 
                 if (Player1naka.PlayerMUKI == 3)
+                {
+                    stop = true;
                     anim.SetTrigger("SPAttackMIGI");
+                    Invoke("Stop", 1.0f);
+                }
 
                 if (Player1naka.PlayerMUKI == 4)
+                {
+                    stop = true;
                     anim.SetTrigger("SPAttackHIDARI");
+                    Invoke("Stop", 1.0f);
+                }                
             }
         }
+
         if (Player1naka.Playerlevelflag == true)//レベルアップアニメーション
         {
             anim.SetTrigger("レベルup");
             Player1naka.Playerlevelflag = false;
         }
-
 
 
         if (Player1naka.PlayerKAIHUKUflag == true)//回復アニメーション
