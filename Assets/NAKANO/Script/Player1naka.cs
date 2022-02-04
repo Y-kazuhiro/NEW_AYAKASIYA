@@ -13,19 +13,20 @@ public class Player1naka : MonoBehaviour
     public static float PlayerHPSab = 50;//HP保管用
     public static float PlayerPower = 2;//攻撃力
     public static float PlayerPowerSub = 2;//攻撃力保管用
-    public static float PlayerSPAttack = 100;//必殺技使用回数
-    public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
+    public static float PlayerSPAttack = 5;//必殺技使用回数
+    public static float PlayerSPAttackSub = 5;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
     public static bool SP1 = false;//必殺技判定
     public static float PlayerEXP = 0;//経験値
     public static float NEXTPoint = 0;//ゴールに必要なポイント数
     public static float GoalCount = 0;
     public static float P_turn = 2;//プレイヤーターン　　２回行動
-    public static float Youki = 15;//妖気
+    public static float Youki = 0;//妖気
     public static double P_turncount = 0;
     public static bool walk = false;//連続移動防止
     public static bool get = false;//連続回復防止
     public static bool Event = false;
+    public static bool YOUKILock = false;
     double P = 0.5;
     public bool isDamage = false;
     public SpriteRenderer sp;
@@ -571,6 +572,17 @@ public class Player1naka : MonoBehaviour
             StartCoroutine(OnDamage());
         }
 
+        if(Youki==15)
+        {
+            YOUKILock = true;
+            Debug.Log("");
+            Debug.Log("<color=red>★必殺技が使えるようになった！★</color>");
+            Debug.Log("");
+            Debug.Log("<color=red>Q</color> or <color=red>E</color>　ボタンで発動可能！");
+            Debug.Log("");
+            Debug.Log("-----------------------------------------------------");
+        }
+
         if (PlayerEXP >= 100 && PlayerHP >= 1)//レベルアップ
         {
             audioSource.PlayOneShot(sound7);
@@ -582,10 +594,12 @@ public class Player1naka : MonoBehaviour
             PlayerKAIHUKUflag = true;
             Playerlevelflag = true;
 
-            Debug.Log("<color=blue>★レベルアップ！</color>");
+            Debug.Log("");
+            Debug.Log("<color=red>★レベルアップ！</color>");
             Debug.Log("体力最大値 + 10");
             Debug.Log("攻撃力 + 2");
             Debug.Log("必殺技回数 + 2");
+            Debug.Log("");
             Debug.Log("-----------------------------------------------------");
 
             PlayerEXP = 0;
