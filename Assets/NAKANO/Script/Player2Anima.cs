@@ -163,6 +163,13 @@ public class Player2Anima : MonoBehaviour
             anim.SetTrigger("‰ñ•œ");
             Player1naka.PlayerKAIHUKUflag = false;
         }
+
+        if(Player1naka.YOUKILock==true)
+        {
+            anim.SetTrigger("YOUKI");
+            Player1naka.YOUKILock = false;
+            Player1naka.Youki++;
+        }
     }
 
     void Stop()

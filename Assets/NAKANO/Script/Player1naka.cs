@@ -1,44 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; //ƒV[ƒ“‘JˆÚ‚³‚¹‚éê‡‚É•K—v
+using UnityEngine.SceneManagement; //ã‚·ãƒ¼ãƒ³é·ç§»ã•ã›ã‚‹å ´åˆã«å¿…è¦
 
 
 
 public class Player1naka : MonoBehaviour
 {
-    //ƒvƒŒƒCƒ„[î•ñ
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æƒ…å ±
     public static float PlayerHP = 50;//HP
-    public static float PlayerHPMAX = 50;//HPãŒÀ
-    public static float PlayerHPSab = 50;//HP•ÛŠÇ—p
-    public static float PlayerPower = 2;//UŒ‚—Í
-    public static float PlayerPowerSub = 2;//UŒ‚—Í•ÛŠÇ—p
-    public static float PlayerSPAttack = 2;//•KE‹Zg—p‰ñ”
-    public static float PlayerSPAttackSub = 2;//•KE‹Zg—p‰ñ”•ÛŠÇ—p
-    public static bool PlayerSPLock = false;//•KE‹ZƒƒbƒN
-    public static bool SP1 = false;//•KE‹Z”»’è
-    public static float PlayerEXP = 0;//ŒoŒ±’l
-    public static float NEXTPoint = 0;//ƒS[ƒ‹‚É•K—v‚Èƒ|ƒCƒ“ƒg”
+    public static float PlayerHPMAX = 50;//HPä¸Šé™
+    public static float PlayerHPSab = 50;//HPä¿ç®¡ç”¨
+    public static float PlayerPower = 2;//æ”»æ’ƒåŠ›
+    public static float PlayerPowerSub = 2;//æ”»æ’ƒåŠ›ä¿ç®¡ç”¨
+
+    public static float PlayerSPAttack = 5;//å¿…æ®ºæŠ€ä½¿ç”¨å›æ•°
+    public static float PlayerSPAttackSub = 5;//å¿…æ®ºæŠ€ä½¿ç”¨å›æ•°ä¿ç®¡ç”¨
+
+    public static bool PlayerSPLock = false;//å¿…æ®ºæŠ€ãƒ­ãƒƒã‚¯
+    public static bool SP1 = false;//å¿…æ®ºæŠ€åˆ¤å®š
+    public static float PlayerEXP = 0;//çµŒé¨“å€¤
+    public static float NEXTPoint = 0;//ã‚´ãƒ¼ãƒ«ã«å¿…è¦ãªãƒã‚¤ãƒ³ãƒˆæ•°
     public static float GoalCount = 0;
-    public static float P_turn = 2;//ƒvƒŒƒCƒ„[ƒ^[ƒ“@@‚Q‰ñs“®
-    public static float Youki = 0;//—d‹C
+    public static float P_turn = 2;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚¿ãƒ¼ãƒ³ã€€ã€€ï¼’å›è¡Œå‹•
+    public static float Youki = 0;//å¦–æ°—
     public static double P_turncount = 0;
-    public static bool walk = false;//˜A‘±ˆÚ“®–h~
-    public static bool get = false;//˜A‘±‰ñ•œ–h~
+    public static bool walk = false;//é€£ç¶šç§»å‹•é˜²æ­¢
+    public static bool get = false;//é€£ç¶šå›å¾©é˜²æ­¢
     public static bool Event = false;
+    public static bool YOUKILock = false;
     double P = 0.5;
     public bool isDamage = false;
     public SpriteRenderer sp;
-    public static float PlayerMUKI = 0;//ƒvƒŒƒCƒ„[‚ÌŒü‚«
+    public static float PlayerMUKI = 0;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ã
 
     public static double Spell = 4;
 
     public static bool Playerlevelflag = false;
     public static bool PlayerKAIHUKUflag = false;
 
-    private GameObject[] BossObjects;  //GameObject‚ÉBossObjects‚ğŠi”[‚µ‚Ü‚·
+    private GameObject[] BossObjects;  //GameObjectã«BossObjectsã‚’æ ¼ç´ã—ã¾ã™
 
-    //------------ƒS[ƒ‹‚É•K—v‚Èƒ|ƒCƒ“ƒg----------
+    //------------ã‚´ãƒ¼ãƒ«ã«å¿…è¦ãªãƒã‚¤ãƒ³ãƒˆ----------
     public static float NEXTCOUNT1 = 5;
     public static float NEXTCOUNT2 = 15;
     public static float NEXTCOUNT3 = 25;
@@ -47,7 +50,7 @@ public class Player1naka : MonoBehaviour
 
 
 
-    //“G‚Ìî•ñ‚ğæ“¾‚·‚é--------------------------------------------
+    //æ•µã®æƒ…å ±ã‚’å–å¾—ã™ã‚‹--------------------------------------------
     GameObject Enemy1;
     Enemy1 enemy;
 
@@ -97,35 +100,35 @@ public class Player1naka : MonoBehaviour
         rd2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
-        //“G‚Ìî•ñ‚ğæ“¾‚·‚é-------------------------------------------------
-        Enemy1 = GameObject.Find("Enemy1"); //Enemy•Ï”‹¤—L‰»
+        //æ•µã®æƒ…å ±ã‚’å–å¾—ã™ã‚‹-------------------------------------------------
+        Enemy1 = GameObject.Find("Enemy1"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemy = Enemy1.GetComponent<Enemy1>();
 
-        Enemy3 = GameObject.Find("Enemy3"); //Enemy•Ï”‹¤—L‰»
+        Enemy3 = GameObject.Find("Enemy3"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemy3 = Enemy3.GetComponent<Enemy3>();
 
-        EGhost = GameObject.Find("EGhost"); //Enemy•Ï”‹¤—L‰»
+        EGhost = GameObject.Find("EGhost"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyG = EGhost.GetComponent<EGhost>();
 
-        EDarkGhost = GameObject.Find("EDarkGhost"); //Enemy•Ï”‹¤—L‰»
+        EDarkGhost = GameObject.Find("EDarkGhost"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyDarkG = EDarkGhost.GetComponent<EDarkGhost>();
 
-        LEnemy = GameObject.Find("LEnemy"); //Enemy•Ï”‹¤—L‰»
+        LEnemy = GameObject.Find("LEnemy"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyL = LEnemy.GetComponent<LEnemy>();
 
-        EKnight = GameObject.Find("EKnight"); //Enemy•Ï”‹¤—L‰»
+        EKnight = GameObject.Find("EKnight"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyKnight = EKnight.GetComponent<EKnight>();
 
-        EGoblin = GameObject.Find("EGoblin"); //Enemy•Ï”‹¤—L‰»
+        EGoblin = GameObject.Find("EGoblin"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyGoblin = EGoblin.GetComponent<EGoblin>();
 
-        EGoblin1 = GameObject.Find("EGoblin1"); //Enemy•Ï”‹¤—L‰»
+        EGoblin1 = GameObject.Find("EGoblin1"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyGoblin1 = EGoblin1.GetComponent<EGoblin1>();
 
-        ETree = GameObject.Find("ETree"); //Enemy•Ï”‹¤—L‰»
+        ETree = GameObject.Find("ETree"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         enemyTree = ETree.GetComponent<ETree>();
 
-        Boss = GameObject.Find("Boss"); //Enemy•Ï”‹¤—L‰»
+        Boss = GameObject.Find("Boss"); //Enemyå¤‰æ•°å…±æœ‰åŒ–
         boss = Boss.GetComponent<Boss>();
 
         walk = false;
@@ -141,17 +144,17 @@ public class Player1naka : MonoBehaviour
             PlayerSPLock = true;
         }
 
-        if (PlayerHP >= 1 && P_turn != 0)//ƒvƒ‰ƒCƒ„[‚Ìƒ^[ƒ“‚ªc‚Á‚Ä‚¢‚½‚çs“®‚Å‚«‚é
+        if (PlayerHP >= 1 && P_turn != 0)//ãƒ—ãƒ©ã‚¤ãƒ¤ãƒ¼ã®ã‚¿ãƒ¼ãƒ³ãŒæ®‹ã£ã¦ã„ãŸã‚‰è¡Œå‹•ã§ãã‚‹
         {
-            //-----------ƒvƒŒƒCƒ„[‚ªˆÚ“®‚·‚é@ƒ^[ƒ“Á”ï‚ ‚è--------------------
+            //-----------ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç§»å‹•ã™ã‚‹ã€€ã‚¿ãƒ¼ãƒ³æ¶ˆè²»ã‚ã‚Š--------------------
             if (Input.GetKeyDown(KeyCode.UpArrow) && walk == false)
             {
                 audioSource.PlayOneShot(sound2);
-                anim.SetBool("‰º", false);
-                anim.SetBool("‰E", false);
-                anim.SetBool("¶", false);
-                this.transform.Translate(0, 1, 0);//ã‚É1ƒ}ƒXˆÚ“®
-                anim.SetBool("ã", true);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å³", false);
+                anim.SetBool("å·¦", false);
+                this.transform.Translate(0, 1, 0);//ä¸Šã«1ãƒã‚¹ç§»å‹•
+                anim.SetBool("ä¸Š", true);
                 P_turn--;
                 Spell--;
                 PlayerMUKI = 1;
@@ -186,11 +189,11 @@ public class Player1naka : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.DownArrow) && walk == false)
             {
                 audioSource.PlayOneShot(sound2);
-                anim.SetBool("ã", false);
-                anim.SetBool("‰E", false);
-                anim.SetBool("¶", false);
-                this.transform.Translate(0, -1, 0);//‰º‚É1ƒ}ƒXˆÚ“®
-                anim.SetBool("‰º", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("å³", false);
+                anim.SetBool("å·¦", false);
+                this.transform.Translate(0, -1, 0);//ä¸‹ã«1ãƒã‚¹ç§»å‹•
+                anim.SetBool("ä¸‹", true);
                 P_turn--;
                 Spell--;
                 PlayerMUKI = 2;
@@ -225,11 +228,11 @@ public class Player1naka : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow) && walk == false)
             {
                 audioSource.PlayOneShot(sound2);
-                anim.SetBool("ã", false);
-                anim.SetBool("‰º", false);
-                anim.SetBool("¶", false);
-                this.transform.Translate(1, 0, 0);//‰E‚É1ƒ}ƒXˆÚ“®
-                anim.SetBool("‰E", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å·¦", false);
+                this.transform.Translate(1, 0, 0);//å³ã«1ãƒã‚¹ç§»å‹•
+                anim.SetBool("å³", true);
                 P_turn--;
                 Spell--;
                 PlayerMUKI = 3;
@@ -264,11 +267,11 @@ public class Player1naka : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow) && walk == false)
             {
                 audioSource.PlayOneShot(sound2);
-                anim.SetBool("ã", false);
-                anim.SetBool("‰º", false);
-                anim.SetBool("‰E", false);
-                this.transform.Translate(-1, 0, 0);//¶‚É1ƒ}ƒXˆÚ“®
-                anim.SetBool("¶", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å³", false);
+                this.transform.Translate(-1, 0, 0);//å·¦ã«1ãƒã‚¹ç§»å‹•
+                anim.SetBool("å·¦", true);
                 P_turn--;
                 Spell--;
                 PlayerMUKI = 4;
@@ -301,46 +304,46 @@ public class Player1naka : MonoBehaviour
             }
             //------------------------------------------------------------------
 
-            //------------ƒvƒŒƒCƒ„[‚Ì•ûŒü‚ğ•Ï‚¦‚é@ƒ^[ƒ“Á”ï‚È‚µ----------------
-            if (Input.GetKeyDown(KeyCode.W))//ã‚ğŒü‚­
+            //------------ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ–¹å‘ã‚’å¤‰ãˆã‚‹ã€€ã‚¿ãƒ¼ãƒ³æ¶ˆè²»ãªã—----------------
+            if (Input.GetKeyDown(KeyCode.W))//ä¸Šã‚’å‘ã
             {
-                anim.SetBool("‰º", false);
-                anim.SetBool("‰E", false);
-                anim.SetBool("¶", false);
-                anim.SetBool("ã", true);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å³", false);
+                anim.SetBool("å·¦", false);
+                anim.SetBool("ä¸Š", true);
                 PlayerMUKI = 1;
             }
 
-            if (Input.GetKeyDown(KeyCode.S))//‰º‚ğŒü‚­
+            if (Input.GetKeyDown(KeyCode.S))//ä¸‹ã‚’å‘ã
             {
-                anim.SetBool("ã", false);
-                anim.SetBool("‰E", false);
-                anim.SetBool("¶", false);
-                anim.SetBool("‰º", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("å³", false);
+                anim.SetBool("å·¦", false);
+                anim.SetBool("ä¸‹", true);
                 PlayerMUKI = 2;
             }
 
-            if (Input.GetKeyDown(KeyCode.D))//‰E‚ğŒü‚­
+            if (Input.GetKeyDown(KeyCode.D))//å³ã‚’å‘ã
             {
-                anim.SetBool("ã", false);
-                anim.SetBool("‰º", false);
-                anim.SetBool("¶", false);
-                anim.SetBool("‰E", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å·¦", false);
+                anim.SetBool("å³", true);
                 PlayerMUKI = 3;
             }
 
-            if (Input.GetKeyDown(KeyCode.A))//¶‚ğŒü‚­
+            if (Input.GetKeyDown(KeyCode.A))//å·¦ã‚’å‘ã
             {
-                anim.SetBool("ã", false);
-                anim.SetBool("‰º", false);
-                anim.SetBool("‰E", false);
-                anim.SetBool("¶", true);
+                anim.SetBool("ä¸Š", false);
+                anim.SetBool("ä¸‹", false);
+                anim.SetBool("å³", false);
+                anim.SetBool("å·¦", true);
                 PlayerMUKI = 4;
             }
 
             //----------------------------------------------------------------
-            //UŒ‚
-            if (Input.GetKeyDown(KeyCode.Space) && walk == false)//ƒXƒy[ƒX‚ÅUŒ‚
+            //æ”»æ’ƒ
+            if (Input.GetKeyDown(KeyCode.Space) && walk == false)//ã‚¹ãƒšãƒ¼ã‚¹ã§æ”»æ’ƒ
             {
                 anim.SetTrigger("PlayerAttack");
                 audioSource.PlayOneShot(sound4);
@@ -374,12 +377,12 @@ public class Player1naka : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.Q) && walk == false)//”ÍˆÍ•KE‹Z-------------------------
+            if (Input.GetKeyDown(KeyCode.Q) && walk == false)//ç¯„å›²å¿…æ®ºæŠ€-------------------------
             {
                 if (PlayerSPLock == false)
                 {
-                    Debug.Log("<color=red>‰ğ•ú‚³‚ê‚Ä‚¢‚È‚¢</color>");
-                    Debug.Log("<color=red>‰ğ•ú‚É•K—v‚È—d‹C</color>" + Youki + "/15");
+                    Debug.Log("<color=red>è§£æ”¾ã•ã‚Œã¦ã„ãªã„</color>");
+                    Debug.Log("<color=red>è§£æ”¾ã«å¿…è¦ãªå¦–æ°—</color>" + Youki + "/15");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -412,7 +415,7 @@ public class Player1naka : MonoBehaviour
                     SPattack();
                     P_turn--;
                     Spell--;
-                    Debug.Log("•KE‹Zc‚è" + PlayerSPAttack + "‰ñ");
+                    Debug.Log("å¿…æ®ºæŠ€æ®‹ã‚Š" + PlayerSPAttack + "å›");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -440,7 +443,7 @@ public class Player1naka : MonoBehaviour
                 }
                 else if (PlayerSPAttack <= 0)
                 {
-                    Debug.Log("<color=red>‹Z‚ªo‚¹‚È‚¢I</color>");
+                    Debug.Log("<color=red>æŠ€ãŒå‡ºã›ãªã„ï¼</color>");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -469,12 +472,12 @@ public class Player1naka : MonoBehaviour
             }//------------------------------------------------------------------------------------
 
 
-            if (Input.GetKeyDown(KeyCode.E) && walk == false)//‰¡•KE‹Z------------------------------
+            if (Input.GetKeyDown(KeyCode.E) && walk == false)//æ¨ªå¿…æ®ºæŠ€------------------------------
             {
                 if (PlayerSPLock == false)
                 {
-                    Debug.Log("<color=red>‰ğ•ú‚³‚ê‚Ä‚¢‚È‚¢</color>");
-                    Debug.Log("<color=red>‰ğ•ú‚É•K—v‚È—d‹C</color>" + Youki + "/15");
+                    Debug.Log("<color=red>è§£æ”¾ã•ã‚Œã¦ã„ãªã„</color>");
+                    Debug.Log("<color=red>è§£æ”¾ã«å¿…è¦ãªå¦–æ°—</color>" + Youki + "/15");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -507,7 +510,7 @@ public class Player1naka : MonoBehaviour
                     SPSPattack();
                     P_turn--;
                     Spell--;
-                    Debug.Log("•KE‹Zc‚è" + PlayerSPAttack + "‰ñ");
+                    Debug.Log("å¿…æ®ºæŠ€æ®‹ã‚Š" + PlayerSPAttack + "å›");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -535,7 +538,7 @@ public class Player1naka : MonoBehaviour
                 }
                 else if (PlayerSPAttack <= 0)
                 {
-                    Debug.Log("<color=red>‹Z‚ªo‚¹‚È‚¢I</color>");
+                    Debug.Log("<color=red>æŠ€ãŒå‡ºã›ãªã„ï¼</color>");
                     Debug.Log("-----------------------------------------------------");
                     walk = true;
                     if (SceneManager.GetActiveScene().name == "Last")
@@ -571,7 +574,18 @@ public class Player1naka : MonoBehaviour
             StartCoroutine(OnDamage());
         }
 
-        if (PlayerEXP >= 100 && PlayerHP >= 1)//ƒŒƒxƒ‹ƒAƒbƒv
+        if(Youki==15)
+        {
+            YOUKILock = true;
+            Debug.Log("");
+            Debug.Log("<color=red>â˜…å¿…æ®ºæŠ€ãŒä½¿ãˆã‚‹ã‚ˆã†ã«ãªã£ãŸï¼â˜…</color>");
+            Debug.Log("");
+            Debug.Log("<color=red>Q</color> or <color=red>E</color>ã€€ãƒœã‚¿ãƒ³ã§ç™ºå‹•å¯èƒ½ï¼");
+            Debug.Log("");
+            Debug.Log("-----------------------------------------------------");
+        }
+
+        if (PlayerEXP >= 100 && PlayerHP >= 1)//ãƒ¬ãƒ™ãƒ«ã‚¢ãƒƒãƒ—
         {
             audioSource.PlayOneShot(sound7);
 
@@ -582,16 +596,18 @@ public class Player1naka : MonoBehaviour
             PlayerKAIHUKUflag = true;
             Playerlevelflag = true;
 
-            Debug.Log("<color=blue>šƒŒƒxƒ‹ƒAƒbƒvI</color>");
-            Debug.Log("‘Ì—ÍÅ‘å’l + 10");
-            Debug.Log("UŒ‚—Í + 2");
-            Debug.Log("•KE‹Z‰ñ” + 2");
+            Debug.Log("");
+            Debug.Log("<color=red>â˜…ãƒ¬ãƒ™ãƒ«ã‚¢ãƒƒãƒ—ï¼</color>");
+            Debug.Log("ä½“åŠ›æœ€å¤§å€¤ + 10");
+            Debug.Log("æ”»æ’ƒåŠ› + 2");
+            Debug.Log("å¿…æ®ºæŠ€å›æ•° + 2");
+            Debug.Log("");
             Debug.Log("-----------------------------------------------------");
 
             PlayerEXP = 0;
         }
 
-        if (PlayerHP <= 0 && get == false)//ƒvƒŒ[ƒ„[‚Ì‘Ì—Í‚ª‚OˆÈ‰º‚É‚È‚é‚ÆƒQ[ƒ€ƒI[ƒo[
+        if (PlayerHP <= 0 && get == false)//ãƒ—ãƒ¬ãƒ¼ãƒ¤ãƒ¼ã®ä½“åŠ›ãŒï¼ä»¥ä¸‹ã«ãªã‚‹ã¨ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼
         {
             get = true;
             walk = true;
@@ -608,7 +624,7 @@ public class Player1naka : MonoBehaviour
 
     }
 
-    //ƒV[ƒ“ˆÚs‚Æ“¯‚ÉƒXƒe[ƒ^ƒX‚ğ‰Šú‰»
+    //ã‚·ãƒ¼ãƒ³ç§»è¡Œã¨åŒæ™‚ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’åˆæœŸåŒ–
     void Die()
     {
         PlayerHP = PlayerHPSab;
@@ -658,12 +674,12 @@ public class Player1naka : MonoBehaviour
         isDamage = true;
     }
 
-    IEnumerator TurnReset()//ƒ^[ƒ“ƒŠƒZƒbƒg‚·‚é
+    IEnumerator TurnReset()//ã‚¿ãƒ¼ãƒ³ãƒªã‚»ãƒƒãƒˆã™ã‚‹
     {
         if (P_turn == 0)
         {
             yield return null;
-            P_turn = 2;//ƒ^[ƒ“‰ñ•œ
+            P_turn = 2;//ã‚¿ãƒ¼ãƒ³å›å¾©
             P_turncount += P;
         }
 
@@ -676,32 +692,32 @@ public class Player1naka : MonoBehaviour
 
     IEnumerator OnDamage()
     {
-        yield return new WaitForSeconds(0.35f);//0.35•b“_–Å‚·‚é
-                                               // ’Êíó‘Ô‚É–ß‚·
+        yield return new WaitForSeconds(0.35f);//0.35ç§’ç‚¹æ»…ã™ã‚‹
+                                               // é€šå¸¸çŠ¶æ…‹ã«æˆ»ã™
         isDamage = false;
         sp.color = new Color(1f, 1f, 1f, 1f);
     }
 
-    //----------------------------------------//“–‚½‚è”»’èˆ—---------------------------
+    //----------------------------------------//å½“ãŸã‚Šåˆ¤å®šå‡¦ç†---------------------------
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemy.EnemyHP -= 2 * PlayerPower;//©•KE‹Z‚ÍŒ»İ‚ÌUŒ‚—Í‚Ì2”{‚ÌUŒ‚‚ğ‚·‚é
+                enemy.EnemyHP -= 2 * PlayerPower;//â†å¿…æ®ºæŠ€ã¯ç¾åœ¨ã®æ”»æ’ƒåŠ›ã®2å€ã®æ”»æ’ƒã‚’ã™ã‚‹
 
                 if (enemy.EnemyHP < 0)
                 {
                     enemy.EnemyHP -= enemy.EnemyHP;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemy.EnemyHP);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemy.EnemyHP -= PlayerPower;
@@ -710,8 +726,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemy.EnemyHP -= enemy.EnemyHP;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemy.EnemyHP);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemy.EnemyHP);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -719,21 +735,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy3")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemy3.EnemyHP3 -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemy3.EnemyHP3 -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemy3.EnemyHP3 < 0)
                 {
                     enemy3.EnemyHP3 -= enemy3.EnemyHP3;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemy3.EnemyHP3);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemy3.EnemyHP3 -= PlayerPower;
@@ -742,8 +758,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemy3.EnemyHP3 -= enemy3.EnemyHP3;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemy3.EnemyHP3);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemy3.EnemyHP3);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }    
@@ -751,21 +767,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "EGhost")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyG.EnemyHPG -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyG.EnemyHPG -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyG.EnemyHPG < 0)
                 {
                     enemyG.EnemyHPG -= enemyG.EnemyHPG;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyG.EnemyHPG);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyG.EnemyHPG -= PlayerPower;
@@ -774,8 +790,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyG.EnemyHPG -= enemyG.EnemyHPG;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyG.EnemyHPG);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyG.EnemyHPG);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }       
@@ -783,21 +799,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "LEnemy")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyL.EnemyHPL -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyL.EnemyHPL -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyL.EnemyHPL < 0)
                 {
                     enemyL.EnemyHPL -= enemyL.EnemyHPL;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyL.EnemyHPL);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyL.EnemyHPL -= PlayerPower;
@@ -806,8 +822,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyL.EnemyHPL -= enemyL.EnemyHPL;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyL.EnemyHPL);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyL.EnemyHPL);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -815,21 +831,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "EDarkGhost")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyDarkG.EnemyHPDG -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyDarkG.EnemyHPDG -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyDarkG.EnemyHPDG < 0)
                 {
                     enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyDarkG.EnemyHPDG);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyDarkG.EnemyHPDG -= PlayerPower;
@@ -838,8 +854,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyDarkG.EnemyHPDG -= enemyDarkG.EnemyHPDG;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyDarkG.EnemyHPDG);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyDarkG.EnemyHPDG);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -847,21 +863,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "EKnight")
         {
-            if(SP1==true)//•KE‹Z‚ÅUŒ‚
+            if(SP1==true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyKnight.EnemyHPK -= 2*PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyKnight.EnemyHPK -= 2*PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
                 
                 if (enemyKnight.EnemyHPK < 0)
                 {
                     enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
                 }
-                Debug.Log("<color=blue>š</color>" + 2*PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
+                Debug.Log("<color=blue>â˜…</color>" + 2*PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyKnight.EnemyHPK);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyKnight.EnemyHPK -= PlayerPower;
@@ -870,8 +886,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyKnight.EnemyHPK -= enemyKnight.EnemyHPK;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyKnight.EnemyHPK);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyKnight.EnemyHPK);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }          
@@ -879,21 +895,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "EGoblin")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyGoblin.EnemyHPGob -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyGoblin.EnemyHPGob -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyGoblin.EnemyHPGob < 0)
                 {
                     enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyGoblin.EnemyHPGob);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyGoblin.EnemyHPGob -= PlayerPower;
@@ -902,8 +918,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyGoblin.EnemyHPGob -= enemyGoblin.EnemyHPGob;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin.EnemyHPGob);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyGoblin.EnemyHPGob);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -911,21 +927,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "EGoblin1")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyGoblin1.EnemyHPGob1 -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyGoblin1.EnemyHPGob1 -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyGoblin1.EnemyHPGob1 < 0)
                 {
                     enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyGoblin1.EnemyHPGob1);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyGoblin1.EnemyHPGob1 -= PlayerPower;
@@ -934,8 +950,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyGoblin1.EnemyHPGob1 -= enemyGoblin1.EnemyHPGob1;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyGoblin1.EnemyHPGob1);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyGoblin1.EnemyHPGob1);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -943,21 +959,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "ETree")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                enemyTree.EnemyHPT -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                enemyTree.EnemyHPT -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (enemyTree.EnemyHPT < 0)
                 {
                     enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyTree.EnemyHPT);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 enemyTree.EnemyHPT -= PlayerPower;
@@ -966,8 +982,8 @@ public class Player1naka : MonoBehaviour
                 {
                     enemyTree.EnemyHPT -= enemyTree.EnemyHPT;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + enemyTree.EnemyHPT);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + enemyTree.EnemyHPT);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
@@ -975,21 +991,21 @@ public class Player1naka : MonoBehaviour
 
         if (collision.gameObject.tag == "Boss")
         {
-            if (SP1 == true)//•KE‹Z‚ÅUŒ‚
+            if (SP1 == true)//å¿…æ®ºæŠ€ã§æ”»æ’ƒ
             {
                 SP1 = false;
-                boss.BossHP -= 2 * PlayerPower;//•KE‹ZˆĞ—Í’²®ƒvƒƒOƒ‰ƒ€
+                boss.BossHP -= 2 * PlayerPower;//å¿…æ®ºæŠ€å¨åŠ›èª¿æ•´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
                 if (boss.BossHP < 0)
                 {
                     boss.BossHP -= boss.BossHP;
                 }
-                Debug.Log("<color=blue>š</color>" + 2 * PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
+                Debug.Log("<color=blue>â˜…</color>" + 2 * PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + boss.BossHP);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
-            else//’ÊíUŒ‚
+            else//é€šå¸¸æ”»æ’ƒ
             {
                 audioSource.PlayOneShot(sound1);
                 boss.BossHP -= PlayerPower;
@@ -998,14 +1014,14 @@ public class Player1naka : MonoBehaviour
                 {
                     boss.BossHP -= boss.BossHP;
                 }
-                Debug.Log("<color=blue>š</color>" + PlayerPower + "‚Ìƒ_ƒ[ƒW‚ğ—^‚¦‚½");
-                Debug.Log("<color=red>š</color>" + "“GHP" + boss.BossHP);
+                Debug.Log("<color=blue>â˜…</color>" + PlayerPower + "ã®ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’ä¸ãˆãŸ");
+                Debug.Log("<color=red>â˜…</color>" + "æ•µHP" + boss.BossHP);
                 Debug.Log("-----------------------------------------------------");
                 Invoke("Damage", 0.5f);
             }
         }
 
-        if (collision.gameObject.tag == "stone" && get == false)//Îæ“¾
+        if (collision.gameObject.tag == "stone" && get == false)//çŸ³å–å¾—
         {
             audioSource.PlayOneShot(sound5);
             float stone = 10;
@@ -1015,11 +1031,11 @@ public class Player1naka : MonoBehaviour
             {
                 get = true;
                 PlayerHP += PlayerHPMAX - PlayerHP;
-                Debug.Log("<color=blue>š</color>" + "HP" + stone + "‰ñ•œ");
-                //Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                Debug.Log("<color=blue>â˜…</color>" + "HP" + stone + "å›å¾©");
+                //Debug.Log("<color=blue>â˜…</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
-                Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
-                Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
+                Debug.Log("<color=blue>â˜…</color>" + "å¿…æ®ºæŠ€å›æ•°+" + SPstone);
+                Debug.Log("<color=blue>â˜…</color>" + "å¿…æ®ºæŠ€ã‚ã¨" + PlayerSPAttack + "å›");
                 Debug.Log("-----------------------------------------------------");
                 PlayerKAIHUKUflag = true;
                 Invoke("Get", 1);
@@ -1027,12 +1043,12 @@ public class Player1naka : MonoBehaviour
             else
             {
                 get = true;
-                PlayerHP += stone;//10‰ñ•œ
-                Debug.Log("<color=blue>š</color>" + "HP" + stone + "‰ñ•œ");
-                //Debug.Log("<color=blue>š</color>" + "HP" + PlayerHP);
+                PlayerHP += stone;//10å›å¾©
+                Debug.Log("<color=blue>â˜…</color>" + "HP" + stone + "å›å¾©");
+                //Debug.Log("<color=blue>â˜…</color>" + "HP" + PlayerHP);
                 PlayerSPAttack += SPstone;
-                Debug.Log("<color=blue>š</color>" + "•KE‹Z‰ñ”+" + SPstone);
-                Debug.Log("<color=blue>š</color>" + "•KE‹Z‚ ‚Æ" + PlayerSPAttack + "‰ñ");
+                Debug.Log("<color=blue>â˜…</color>" + "å¿…æ®ºæŠ€å›æ•°+" + SPstone);
+                Debug.Log("<color=blue>â˜…</color>" + "å¿…æ®ºæŠ€ã‚ã¨" + PlayerSPAttack + "å›");
                 Debug.Log("-----------------------------------------------------");
                 PlayerKAIHUKUflag = true;
                 Invoke("Get", 1);
@@ -1040,8 +1056,8 @@ public class Player1naka : MonoBehaviour
 
 
         }
-        //----------------------------------ƒV[ƒ“Ø‚è‘Ö‚¦----------------------------------------------
-        if (collision.gameObject.tag == "Goal2")//‘æ2ƒXƒe[ƒW‚Éi‚Ş
+        //----------------------------------ã‚·ãƒ¼ãƒ³åˆ‡ã‚Šæ›¿ãˆ----------------------------------------------
+        if (collision.gameObject.tag == "Goal2")//ç¬¬2ã‚¹ãƒ†ãƒ¼ã‚¸ã«é€²ã‚€
         {
             if (NEXTPoint >= NEXTCOUNT1)
             {
@@ -1051,11 +1067,11 @@ public class Player1naka : MonoBehaviour
                 walk = false;
             }
             else
-                Debug.Log("<color=red>ƒ|ƒCƒ“ƒg‚ª‘«‚è‚È‚¢</color>" + NEXTPoint + "/" + NEXTCOUNT1);
+                Debug.Log("<color=red>ãƒã‚¤ãƒ³ãƒˆãŒè¶³ã‚Šãªã„</color>" + NEXTPoint + "/" + NEXTCOUNT1);
             Debug.Log("-----------------------------------------------------");
         }
 
-        if (collision.gameObject.tag == "Goal3")//‘æ‚RƒXƒe[ƒW‚Éi‚Ş
+        if (collision.gameObject.tag == "Goal3")//ç¬¬ï¼“ã‚¹ãƒ†ãƒ¼ã‚¸ã«é€²ã‚€
         {
             if (NEXTPoint >= NEXTCOUNT2)
             {
@@ -1065,7 +1081,7 @@ public class Player1naka : MonoBehaviour
                 walk = false;
             }
             else
-                Debug.Log("<color=red>ƒ|ƒCƒ“ƒg‚ª‘«‚è‚È‚¢</color>" + NEXTPoint + "/" + NEXTCOUNT2);
+                Debug.Log("<color=red>ãƒã‚¤ãƒ³ãƒˆãŒè¶³ã‚Šãªã„</color>" + NEXTPoint + "/" + NEXTCOUNT2);
             Debug.Log("-----------------------------------------------------");
         }
 
@@ -1073,13 +1089,13 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT3)
             {
-                //SceneManager.LoadScene("Nakano1");//‘æ‚SƒXƒe[ƒW‚Éi‚Ş
+                //SceneManager.LoadScene("Nakano1");//ç¬¬ï¼”ã‚¹ãƒ†ãƒ¼ã‚¸ã«é€²ã‚€
                 FadeManager.Instance.LoadScene("Nakano1", 1.0f);
                 GoalCount++;
                 walk = false;
             }
             else
-                Debug.Log("<color=red>ƒ|ƒCƒ“ƒg‚ª‘«‚è‚È‚¢</color>" + NEXTPoint + "/" + NEXTCOUNT3);
+                Debug.Log("<color=red>ãƒã‚¤ãƒ³ãƒˆãŒè¶³ã‚Šãªã„</color>" + NEXTPoint + "/" + NEXTCOUNT3);
             Debug.Log("-----------------------------------------------------");
         }
 
@@ -1087,21 +1103,21 @@ public class Player1naka : MonoBehaviour
         {
             if (NEXTPoint >= NEXTCOUNT4)
             {
-                //SceneManager.LoadScene("Last");//ƒ‰ƒXƒXƒe
+                //SceneManager.LoadScene("Last");//ãƒ©ã‚¹ã‚¹ãƒ†
                 FadeManager.Instance.LoadScene("Last", 1.0f);
                 GoalCount++;
                 walk = false;
             }
             else
             {
-                Debug.Log("<color=red>ƒ|ƒCƒ“ƒg‚ª‘«‚è‚È‚¢</color>" + NEXTPoint + "/" + NEXTCOUNT4);
+                Debug.Log("<color=red>ãƒã‚¤ãƒ³ãƒˆãŒè¶³ã‚Šãªã„</color>" + NEXTPoint + "/" + NEXTCOUNT4);
                 Debug.Log("-----------------------------------------------------");
             }
         }
 
         if (collision.gameObject.tag == "Goal4")
         {           
-            //SceneManager.LoadScene("Clear");//ƒNƒŠƒA
+            //SceneManager.LoadScene("Clear");//ã‚¯ãƒªã‚¢
             FadeManager.Instance.LoadScene("Clear", 3.0f);
             //PlayerHP = PlayerHPSab;
             //PlayerHPMAX = PlayerHPSab;
@@ -1120,22 +1136,22 @@ public class Player1naka : MonoBehaviour
             Invoke("Die",3);
         }
 
-        //ÅŒã‚Ì‰ï˜b
+        //æœ€å¾Œã®ä¼šè©±
         if (collision.gameObject.tag == "event" && Event == false)
         {
             Event = true;
-            Debug.Log("‚æ‚­‚¼‚±‚±‚Ü‚Å’H‚è’…‚«‚Ü‚µ‚½B");
-            Debug.Log("‚±‚Ìæ‚É—d’B‚Ì‘å«‚ª‚¢‚Ü‚·");
-            Debug.Log("‚Ç‚¤‚©„‚½‚¿‚Ì–³”O‚ğA");
-            Debug.Log("áJ‚ğ°‚ç‚µ‚Ä‚­‚¾‚³‚¢B");
+            Debug.Log("ã‚ˆããã“ã“ã¾ã§è¾¿ã‚Šç€ãã¾ã—ãŸã€‚");
+            Debug.Log("ã“ã®å…ˆã«å¦–é”ã®å¤§å°†ãŒã„ã¾ã™");
+            Debug.Log("ã©ã†ã‹ç§ãŸã¡ã®ç„¡å¿µã‚’ã€");
+            Debug.Log("é›ªè¾±ã‚’æ™´ã‚‰ã—ã¦ãã ã•ã„ã€‚");
             Debug.Log("");
-            Debug.Log("‚²•‰^‚ğB");
+            Debug.Log("ã”æ­¦é‹ã‚’ã€‚");
             Debug.Log("-----------------------------------------------------");
         }
 
         //if (collision.gameObject.tag == "hantei")
         //{
-        //    Debug.Log("‹ß‚­‚ÉƒAƒCƒeƒ€‚ª‚ ‚è‚»‚¤‚¾");
+        //    Debug.Log("è¿‘ãã«ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚ã‚Šãã†ã ");
         //}
     }
 

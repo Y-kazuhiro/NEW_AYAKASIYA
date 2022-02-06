@@ -30,7 +30,7 @@ public class EnemyTurn1 : MonoBehaviour
 
         int Enemy_or= Random.Range(-1, 2);
 
-        yield return new WaitForSeconds(0.3f);//プレイヤーの攻撃が終わるまでちょっと待つ
+        yield return new WaitForSeconds(0.5f);//プレイヤーの攻撃が終わるまでちょっと待つ
 
         if (Enemy_or == -1)
             transform.position += new Vector3(Enemy_Move,0,0);//横移動
