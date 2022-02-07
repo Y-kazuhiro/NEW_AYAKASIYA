@@ -68069,6 +68069,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
+      propertyPath: EnemyYouki
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501225779004881305, guid: 1145b4ace7055e94a85833a53d0be0b6, type: 3}
       propertyPath: EnemyHPGMAX
       value: 10
       objectReference: {fileID: 0}
