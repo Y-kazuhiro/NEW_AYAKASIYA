@@ -18230,7 +18230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
       propertyPath: BossHP
-      value: 150
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
       propertyPath: sound1
@@ -18242,7 +18242,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 681d35a294e94f94ca9eb270423454c7, type: 3}
     - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
       propertyPath: BossHPMAX
-      value: 150
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 1269774243221702354, guid: 14d6a87e398250945a42e9853cf394bc, type: 3}
       propertyPath: BossPOWER
