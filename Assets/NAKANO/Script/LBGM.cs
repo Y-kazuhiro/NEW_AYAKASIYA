@@ -13,6 +13,7 @@ public class LBGM : MonoBehaviour
 
     void Start()
     {
+        active = false;
         audioSource = GetComponent<AudioSource>();
     }
 

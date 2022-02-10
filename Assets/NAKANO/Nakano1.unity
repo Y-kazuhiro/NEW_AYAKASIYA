@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: EnemyEXPGob
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: EnemyHPGobMAX

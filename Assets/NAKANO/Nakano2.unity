@@ -65957,7 +65957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: EnemyPOWERL
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936171, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: m_Name

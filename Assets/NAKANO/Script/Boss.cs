@@ -32,6 +32,12 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        Voice = false;
+        attack = false;
+        Event = false;
+        active = false;
+        isDamage = false;
+
         rd2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();

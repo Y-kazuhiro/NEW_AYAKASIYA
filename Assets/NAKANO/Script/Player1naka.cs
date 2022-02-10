@@ -17,7 +17,7 @@ public class Player1naka : MonoBehaviour
     public static float PlayerSPAttackSub = 10;//必殺技使用回数保管用
     public static bool PlayerSPLock = false;//必殺技ロック
     public static float PlayerEXP = 0;//経験値
-    public static float NEXTPoint = 0;//ゴールに必要なポイント数
+    public static float NEXTPoint = 50;//ゴールに必要なポイント数
     public static float GoalCount = 0;
     public static float P_turn = 2;//プレイヤーターン　　２回行動
     public static float Youki = 15;//妖気
@@ -615,7 +615,7 @@ public class Player1naka : MonoBehaviour
         PlayerSPLock = false;
         PlayerEXP = 0;
         GoalCount = 0;
-        NEXTPoint = 0;
+        NEXTPoint = 50;
         Youki = 0;
         P_turncount = 0;
         P_turn = 0;

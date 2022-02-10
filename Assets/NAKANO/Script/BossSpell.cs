@@ -13,6 +13,9 @@ public class BossSpell : MonoBehaviour
 
     void Start()
     {
+        active = false;
+        se = false;
+
         audioSource = GetComponent<AudioSource>();
     }
 

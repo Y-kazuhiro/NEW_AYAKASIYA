@@ -27,6 +27,9 @@ public class EGhost : MonoBehaviour
 
     void Start()
     {
+        Event = false;
+        isDamage = false;
+
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
