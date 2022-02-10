@@ -382,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: EnemyEXPL
-      value: 55
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3071971490527936167, guid: d7e6e121deefb9a4badcf863ccaf1bec, type: 3}
       propertyPath: EnemyHPLMAX
@@ -1436,7 +1436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: EnemyEXPGob
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3686101795730846495, guid: 7db3951397690c440a48d1166aeff553, type: 3}
       propertyPath: EnemyHPGobMAX
